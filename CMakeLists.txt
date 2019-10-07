@@ -35,6 +35,11 @@ set (systolic_VERSION_MINOR 1)
 include_directories(${CMAKE_SOURCE_DIR}/inc)
 
 # Files to compile
-set(SOURCES src/main.cpp)
+set(SOURCES src/main.cpp
+  src/Systolic/Cell/SquareCell.cpp
+  src/Systolic/Container.cpp)
 
 add_executable (systolic ${SOURCES})
+
+# Required C++17 support
+set_property(TARGET systolic PROPERTY CXX_STANDARD 17)

@@ -17,19 +17,29 @@
 // specific language governing permissions and limitations
 // under the License.
 
-#include "Systolic/Container/Container.hpp"
-#include "Systolic/Cell/SquareCell.hpp"
+#pragma once
 
-#include <iostream>
+#include "Systolic/Cell/ICell.hpp"
 #include <tuple>
+#include <optional>
 
-int main()
-{
-	Systolic::Container sc(2, 4, 5);
+namespace Systolic {
+	namespace Cell {
 
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.compute();
-	sc.dumpOutputs();
-	return EXIT_SUCCESS;
+		class SquareCell : public ICell {
+		public:
+			SquareCell();
+
+			std::tuple<int, std::optional<int>> compute() override;
+			void feed(std::optional<int> input) override;
+			std::tuple<int, std::optional<int>> getPartial() override;
+			bool isEmpty() override;
+
+		private:
+			std::optional<int> input;
+			std::optional<int> current;
+			int sum;
+			bool empty;
+		};
+	}
 }

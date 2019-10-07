@@ -17,19 +17,34 @@
 // specific language governing permissions and limitations
 // under the License.
 
-#include "Systolic/Container/Container.hpp"
 #include "Systolic/Cell/SquareCell.hpp"
 
-#include <iostream>
-#include <tuple>
-
-int main()
+Systolic::Cell::SquareCell::SquareCell(): current{}, sum(0)
 {
-	Systolic::Container sc(2, 4, 5);
+}
 
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.compute();
-	sc.dumpOutputs();
-	return EXIT_SUCCESS;
+std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::compute()
+{
+	if (input.has_value()) {
+		current = input.value() * input.value();
+		sum += current.value_or(0);
+	} else {
+		current = {};
+	}
+	return getPartial();
+}
+
+void Systolic::Cell::SquareCell::feed(std::optional<int> input)
+{
+	this->input = input;
+}
+
+std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::getPartial()
+{
+	return std::make_tuple(sum, current);
+}
+
+bool Systolic::Cell::SquareCell::isEmpty()
+{
+	return empty;
 }

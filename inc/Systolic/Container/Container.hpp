@@ -17,19 +17,32 @@
 // specific language governing permissions and limitations
 // under the License.
 
-#include "Systolic/Container/Container.hpp"
-#include "Systolic/Cell/SquareCell.hpp"
+#pragma once
+
+#include "Systolic/Cell/ICell.hpp"
 
 #include <iostream>
-#include <tuple>
+#include <vector>
+#include <queue>
+#include <cstdarg>
 
-int main()
-{
-	Systolic::Container sc(2, 4, 5);
+namespace Systolic {
 
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.compute();
-	sc.dumpOutputs();
-	return EXIT_SUCCESS;
+	class Container {
+	public:
+		Container(int entries, ...);
+		// TODO extra construct taking vector<int> and queue<int>
+		~Container();
+
+		void addCell(Systolic::Cell::ICell *cell); // TODO Consider builder<
+		void step();
+		void compute();
+		void dumpOutputs(); // TODO const function
+		std::queue<int> getOutputs(); // TODO const function
+	private:
+		Systolic::Cell::ICell *cell; // TODO ICell vector (consider unique_ptr)
+		Systolic::Cell::ICell *cell2; // TODO ICell vector (consider unique_ptr)
+		std::queue<int> inputs;
+		std::queue<int> outputs;
+	};
 }

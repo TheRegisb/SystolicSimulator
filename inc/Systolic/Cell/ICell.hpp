@@ -17,19 +17,21 @@
 // specific language governing permissions and limitations
 // under the License.
 
-#include "Systolic/Container/Container.hpp"
-#include "Systolic/Cell/SquareCell.hpp"
+#pragma once
 
-#include <iostream>
 #include <tuple>
+#include <optional>
 
-int main()
-{
-	Systolic::Container sc(2, 4, 5);
+namespace Systolic {
+	namespace Cell {
 
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.compute();
-	sc.dumpOutputs();
-	return EXIT_SUCCESS;
+		class ICell {
+		public:
+			virtual std::tuple<int, std::optional<int>> compute() = 0;
+			virtual void feed(std::optional<int> input) = 0;
+			virtual std::tuple<int, std::optional<int>> getPartial() = 0; // TODO const function
+			virtual bool isEmpty() = 0; // TODO const function
+			virtual ~ICell() {};
+		};
+	}
 }
