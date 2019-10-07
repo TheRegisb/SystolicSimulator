@@ -19,17 +19,17 @@
 
 #include "Systolic/Container/Container.hpp"
 
-Systolic::Container::Container(int entries, ...)
+Systolic::Container::Container(const int entries, ...)
 {
 	va_list args;
 
 	va_start(args, entries);
-	while (entries--) {
+	for (int i = 0; i != entries; i++) {
 		inputs.push(va_arg(args, int));
 	}
 }
 
-Systolic::Container::Container(std::initializer_list<int> entries)
+Systolic::Container::Container(const std::initializer_list<const int> entries)
 {
 	for (int entry : entries) {
 		inputs.push(entry);
@@ -100,7 +100,7 @@ void Systolic::Container::compute()
 	step();
 }
 
-void Systolic::Container::dumpOutputs()
+void Systolic::Container::dumpOutputs() const
 {
 	std::queue<int> copy = outputs;
 
@@ -108,4 +108,9 @@ void Systolic::Container::dumpOutputs()
 		std::cout << copy.front() << std::endl;
 		copy.pop();
 	}
+}
+
+std::queue<int> Systolic::Container::getOutputs() const
+{
+	return outputs;
 }

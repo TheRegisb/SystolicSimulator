@@ -31,9 +31,9 @@ namespace Systolic {
 			SquareCell();
 
 			std::tuple<int, std::optional<int>> compute() override;
-			void feed(std::optional<int> input) override;
-			std::tuple<int, std::optional<int>> getPartial() override;
-			bool isEmpty() override;
+			void feed(const std::optional<int> input) override;
+			std::tuple<int, std::optional<int>> getPartial() const override;
+			bool isEmpty() const override;
 
 		private:
 			std::optional<int> input;

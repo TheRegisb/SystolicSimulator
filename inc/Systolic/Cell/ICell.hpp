@@ -28,9 +28,9 @@ namespace Systolic {
 		class ICell {
 		public:
 			virtual std::tuple<int, std::optional<int>> compute() = 0;
-			virtual void feed(std::optional<int> input) = 0;
-			virtual std::tuple<int, std::optional<int>> getPartial() = 0; // TODO const function
-			virtual bool isEmpty() = 0; // TODO const function
+			virtual void feed(const std::optional<int> input) = 0;
+			virtual std::tuple<int, std::optional<int>> getPartial() const = 0;
+			virtual bool isEmpty() const = 0;
 			virtual ~ICell() {};
 		};
 	}

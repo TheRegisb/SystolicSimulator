@@ -34,17 +34,17 @@ std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::compute()
 	return getPartial();
 }
 
-void Systolic::Cell::SquareCell::feed(std::optional<int> input)
+void Systolic::Cell::SquareCell::feed(const std::optional<int> input)
 {
 	this->input = input;
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::getPartial()
+std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::getPartial() const
 {
 	return std::make_tuple(sum, current);
 }
 
-bool Systolic::Cell::SquareCell::isEmpty()
+bool Systolic::Cell::SquareCell::isEmpty() const
 {
 	return empty;
 }

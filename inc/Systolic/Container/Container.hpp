@@ -33,14 +33,14 @@ namespace Systolic {
 
 	class Container {
 	public:
-		Container(int entries, ...);
-		Container(std::initializer_list<int> entries);
+		Container(const int entries, ...);
+		Container(const std::initializer_list<const int> entries);
 
 		void addCell(std::unique_ptr<Systolic::Cell::ICell> cell); // TODO Consider builder
 		void step();
 		void compute();
-		void dumpOutputs(); // TODO const function
-		std::queue<int> getOutputs(); // TODO const function
+		void dumpOutputs() const;
+		std::queue<int> getOutputs() const;
 	private:
 		std::vector<std::unique_ptr<Systolic::Cell::ICell>> cells;
 		std::queue<int> inputs;
