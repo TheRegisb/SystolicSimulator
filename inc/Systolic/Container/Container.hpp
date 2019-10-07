@@ -24,6 +24,7 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
+#include <initializer_list>
 #include <vector>
 #include <queue>
 #include <cstdarg>
@@ -33,10 +34,9 @@ namespace Systolic {
 	class Container {
 	public:
 		Container(int entries, ...);
-		// TODO extra construct taking vector<int> and queue<int>
-		~Container();
+		Container(std::initializer_list<int> entries);
 
-		void addCell(std::unique_ptr<Systolic::Cell::ICell> cell); // TODO Consider builder<
+		void addCell(std::unique_ptr<Systolic::Cell::ICell> cell); // TODO Consider builder
 		void step();
 		void compute();
 		void dumpOutputs(); // TODO const function
@@ -45,5 +45,6 @@ namespace Systolic {
 		std::vector<std::unique_ptr<Systolic::Cell::ICell>> cells;
 		std::queue<int> inputs;
 		std::queue<int> outputs;
+		// TODO log debug/execution info in a stringstream
 	};
 }

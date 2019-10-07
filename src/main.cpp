@@ -26,7 +26,7 @@
 
 int main()
 {
-	Systolic::Container sc(2, 4, 5);
+	Systolic::Container sc({4, 5});
 
 	/*
 	 * TODO cells builder like:

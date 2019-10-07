@@ -29,8 +29,11 @@ Systolic::Container::Container(int entries, ...)
 	}
 }
 
-Systolic::Container::~Container()
+Systolic::Container::Container(std::initializer_list<int> entries)
 {
+	for (int entry : entries) {
+		inputs.push(entry);
+	}
 }
 
 void Systolic::Container::addCell(std::unique_ptr<Systolic::Cell::ICell> cell)
