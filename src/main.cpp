@@ -21,14 +21,21 @@
 #include "Systolic/Cell/SquareCell.hpp"
 
 #include <iostream>
+#include <memory>
 #include <tuple>
 
 int main()
 {
 	Systolic::Container sc(2, 4, 5);
 
-	sc.addCell(new Systolic::Cell::SquareCell());
-	sc.addCell(new Systolic::Cell::SquareCell());
+	/*
+	 * TODO cells builder like:
+	 * sc.setCells(new CellArrayBuilder().add(Systolic::Type::SquareCell)
+	 *                                   .add(Systolic::Type::SquareCell)
+	 *                                   .build());
+	 */
+	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
+	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
 	sc.compute();
 	sc.dumpOutputs();
 	return EXIT_SUCCESS;

@@ -22,6 +22,8 @@
 #include "Systolic/Cell/ICell.hpp"
 
 #include <iostream>
+#include <memory>
+#include <algorithm>
 #include <vector>
 #include <queue>
 #include <cstdarg>
@@ -34,14 +36,13 @@ namespace Systolic {
 		// TODO extra construct taking vector<int> and queue<int>
 		~Container();
 
-		void addCell(Systolic::Cell::ICell *cell); // TODO Consider builder<
+		void addCell(std::unique_ptr<Systolic::Cell::ICell> cell); // TODO Consider builder<
 		void step();
 		void compute();
 		void dumpOutputs(); // TODO const function
 		std::queue<int> getOutputs(); // TODO const function
 	private:
-		Systolic::Cell::ICell *cell; // TODO ICell vector (consider unique_ptr)
-		Systolic::Cell::ICell *cell2; // TODO ICell vector (consider unique_ptr)
+		std::vector<std::unique_ptr<Systolic::Cell::ICell>> cells;
 		std::queue<int> inputs;
 		std::queue<int> outputs;
 	};

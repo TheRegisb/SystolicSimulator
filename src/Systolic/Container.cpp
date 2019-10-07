@@ -19,7 +19,7 @@
 
 #include "Systolic/Container/Container.hpp"
 
-Systolic::Container::Container(int entries, ...): cell(nullptr), cell2(nullptr)
+Systolic::Container::Container(int entries, ...)
 {
 	va_list args;
 
@@ -31,48 +31,51 @@ Systolic::Container::Container(int entries, ...): cell(nullptr), cell2(nullptr)
 
 Systolic::Container::~Container()
 {
-	if (cell != nullptr) {
-		delete cell;
-	}
-	if (cell2 != nullptr) {
-		delete cell2;
-	}
 }
 
-void Systolic::Container::addCell(Systolic::Cell::ICell *cell)
+void Systolic::Container::addCell(std::unique_ptr<Systolic::Cell::ICell> cell)
 {
-	// TODO push to vector
-	static int count = 0;
-
-	if (count++ == 3) {
-		throw std::runtime_error("Cannot have more than two cells");
+	if (cell == nullptr) {
+		std::cerr << "Warn: Trying to add NULL cell; addCell call ignored." << std::endl;
+		return;
 	}
-	if (count == 1) {
-		this->cell = cell;
-	} else {
-		this->cell2 = cell;
+	if(std::find(cells.begin(), cells.end(), cell) != cells.end()) { // Trying to add the same cell more than once.
+		std::cerr << "Warn: Cell duplication detected; addCell call ignored." << std::endl;
+		return;
 	}
+	cells.push_back(std::move(cell));
 }
 
 void Systolic::Container::step()
 {
-	if (cell == nullptr || cell2 == nullptr) {
-		throw std::runtime_error("One or more cell are not set up properly");
+	if (cells.size() == 0) {
+		std::cerr << "Warn: Cannot compute container step: No cells available." << std::endl;
+		return;
 	}
-	auto result = cell->compute();
-	auto result2 = cell2->compute();
-	if (inputs.empty()) {
-		cell->feed({});
-	} else {
-		std::cout << "Input: " << inputs.front() << std::endl;
-		cell->feed(inputs.front());
+
+	// Compute the current value of each cells.
+	for (auto &&ptr : cells) {
+		std::tuple<int, std::optional<int>> res = ptr->compute();
+	}
+	
+	// Feeds the first cell with a value from the inputs queue.
+	if (!inputs.empty()) {
+		cells.at(0)->feed(inputs.front());
 		inputs.pop();
+	} else {
+		cells.at(0)->feed({}); // Feeds empty value.
 	}
-	cell2->feed(std::get<1>(cell->getPartial()));
-	std::cout << "Cell 1 " << std::get<0>(result) << " -- " << std::get<1>(result).value_or(0) << std::endl;
-	std::cout << "Cell 2 " << std::get<0>(result2) << " -- " << std::get<1>(result2).value_or(0) << std::endl << std::endl;
-	if (std::get<1>(cell2->getPartial()).has_value()) {
-		outputs.push(std::get<1>(cell2->getPartial()).value());
+
+	// Feed all other cells with the partials of the previous cell.
+	for(std::size_t i = 1; i < cells.size(); i++) {
+		cells.at(i)->feed(std::get<1>(cells.at(i - 1)->getPartial()));
+	}
+
+	// Add the last cell partial (final result) to the output queue if available.
+	std::optional<int> lastCellOutput = std::get<1>(cells.back()->getPartial());
+
+	if (lastCellOutput.has_value()) {
+		outputs.push(lastCellOutput.value());
 	}
 }
 
@@ -80,6 +83,14 @@ void Systolic::Container::compute()
 {
 	std::size_t ioSize = inputs.size();
 
+	if (cells.size() == 0) {
+		std::cerr << "Err: Cannot compute container: No cells available." << std::endl;
+		return;
+	}
+	if (ioSize == 0) {
+		std::cerr << "Err: No inputs available." << std::endl;
+		return;
+	}
 	while (outputs.size() != ioSize) { // TODO consider do while
 		step();
 	};

@@ -26,6 +26,11 @@ if (WIN32)
   set(CMAKE_GENERATOR_PLATFORM "x64")
 endif()
 
+# Set warning flags
+if(CMAKE_COMPILER_IS_GNUCXX)
+  set(CMAKE_CSS_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
+endif()
+
 # Project is systolic
 project(systolic)
 set (systolic_VERSION_MAJOR 0)
