@@ -17,4 +17,24 @@
 // specific language governing permissions and limitations
 // under the License.
 
+/**
+ * @file Systolic.hpp
+ * Convenience header, and also the Doxygen main page.
+ */
+
 #pragma once
+
+// TODO convenience header with all relevant Systolic headers.
+
+/*! \mainpage Systolic Simulator
+ * \section Presentation
+ * Simulation of the flow of systolic algorithms; where computational
+ * unit called "cell" are working on parallel, computing the result
+ * given by the last cell before feeding the result into the next one.
+ *
+ * More to come later.
+ *
+ * <hr>
+ * \section Credits
+ * BERTHELOT Régis, 2019.
+ */

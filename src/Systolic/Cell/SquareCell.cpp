@@ -17,6 +17,11 @@
 // specific language governing permissions and limitations
 // under the License.
 
+/**
+ * @file SquareCell.cpp
+ * Implementation of SquareCell.
+ */
+
 #include "Systolic/Cell/SquareCell.hpp"
 
 Systolic::Cell::SquareCell::SquareCell(): current{}, sum(0)
@@ -42,9 +47,4 @@ void Systolic::Cell::SquareCell::feed(const std::optional<int> input)
 std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::getPartial() const
 {
 	return std::make_tuple(sum, current);
-}
-
-bool Systolic::Cell::SquareCell::isEmpty() const
-{
-	return empty;
 }

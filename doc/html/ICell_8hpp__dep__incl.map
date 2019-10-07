@@ -1,0 +1,6 @@
+<map id="inc/Systolic/Cell/ICell.hpp" name="inc/Systolic/Cell/ICell.hpp">
+<area shape="rect" id="node2" href="$SquareCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="11,80,173,121"/>
+<area shape="rect" id="node4" href="$Container_8hpp.html" title="Defaukt cell container and runner. " alt="" coords="201,80,351,121"/>
+<area shape="rect" id="node3" href="$SquareCell_8cpp.html" title="Implementation of SquareCell. " alt="" coords="5,169,168,211"/>
+<area shape="rect" id="node5" href="$Container_8cpp.html" title="Implementation of Container. " alt="" coords="192,177,368,203"/>
+</map>
