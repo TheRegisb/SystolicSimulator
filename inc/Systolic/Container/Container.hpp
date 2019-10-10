@@ -19,7 +19,7 @@
 
 /**
  * @file Container.hpp
- * Defaukt cell container and runner.
+ * Default cell container and runner.
  */
 
 #pragma once

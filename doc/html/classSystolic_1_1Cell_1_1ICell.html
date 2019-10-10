@@ -80,9 +80,11 @@ Inheritance diagram for Systolic::Cell::ICell:</div>
 <div class="center"><img src="classSystolic_1_1Cell_1_1ICell__inherit__graph.png" border="0" usemap="#Systolic_1_1Cell_1_1ICell_inherit__map" alt="Inheritance graph"/></div>
 <map name="Systolic_1_1Cell_1_1ICell_inherit__map" id="Systolic_1_1Cell_1_1ICell_inherit__map">
 <area shape="rect" id="node2" href="classSystolic_1_1Cell_1_1AdditiveCell.html" title="Implementation of an ICell for addition operation. " alt="" coords="202,5,381,32"/>
-<area shape="rect" id="node3" href="classSystolic_1_1Cell_1_1DivisionCell.html" title="Implementation of an ICell for division operation. " alt="" coords="202,56,381,83"/>
-<area shape="rect" id="node4" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html" title="Implementation of an ICell for multiplicative operation. " alt="" coords="188,107,395,133"/>
-<area shape="rect" id="node5" href="classSystolic_1_1Cell_1_1SquareCell.html" title="Implementation of an ICell for square operation. " alt="" coords="205,157,377,184"/>
+<area shape="rect" id="node3" href="classSystolic_1_1Cell_1_1CustomCell.html" title="Implementation of an ICell for square operation. " alt="" coords="203,56,380,83"/>
+<area shape="rect" id="node4" href="classSystolic_1_1Cell_1_1DivisionCell.html" title="Implementation of an ICell for division operation. " alt="" coords="202,107,381,133"/>
+<area shape="rect" id="node5" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html" title="Implementation of an ICell for multiplicative operation. " alt="" coords="188,157,395,184"/>
+<area shape="rect" id="node6" href="classSystolic_1_1Cell_1_1PowerCell.html" title="Implementation of an ICell for square operation. " alt="" coords="207,208,375,235"/>
+<area shape="rect" id="node7" href="classSystolic_1_1Cell_1_1SquareCell.html" title="Implementation of an ICell for square operation. " alt="" coords="205,259,377,285"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -132,7 +134,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>Perform the computation. </p>
 <p>Does an implementation-dependant computation based on its internal stored value. Replaces its internal stored value by the computed result. </p><dl class="section return"><dt>Returns</dt><dd>A tuple with at 0 the new computed value and at 1 the initial value from the input queue. May be empty on empty feeding. </dd></dl>
 
-<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a19d01391bc929630524e3045f9a41dc4">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#ad5943ae1080d219fe7704742a0a8d551">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a8b80edcfd9ff47ad0592aca121726b2b">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#a0488aea645b20c535597277296f28c21">Systolic::Cell::SquareCell</a>.</p>
+<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a19d01391bc929630524e3045f9a41dc4">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#ad5943ae1080d219fe7704742a0a8d551">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a8b80edcfd9ff47ad0592aca121726b2b">Systolic::Cell::MultiplicativeCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1CustomCell.html#ac62b817dc1ebade222c3d21ea66c1876">Systolic::Cell::CustomCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1PowerCell.html#ab7a23561974efb67b5179dd39cc4bfa5">Systolic::Cell::PowerCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#a0488aea645b20c535597277296f28c21">Systolic::Cell::SquareCell</a>.</p>
 
 </div>
 </div>
@@ -169,7 +171,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#ae100e1a955ef7faf16cdf85e19e2008e" title="Perform the computation. ">compute</a> </dd></dl>
 
-<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a691c8f2bce724c387e47ef23b8b32c57">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#a038beafaca6f3ffd62fec5fb4b4547e6">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a2e58b16cc2dc93079dd84e3775c56531">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#a511163be440b312a988f64ec1e195ac6">Systolic::Cell::SquareCell</a>.</p>
+<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a691c8f2bce724c387e47ef23b8b32c57">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#a038beafaca6f3ffd62fec5fb4b4547e6">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a2e58b16cc2dc93079dd84e3775c56531">Systolic::Cell::MultiplicativeCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1CustomCell.html#add06a2f8253bacf8276a5db7ee6aff9c">Systolic::Cell::CustomCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1PowerCell.html#a7da2d43f3001abd78b4263ca7e48bced">Systolic::Cell::PowerCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#a511163be440b312a988f64ec1e195ac6">Systolic::Cell::SquareCell</a>.</p>
 
 </div>
 </div>
@@ -200,7 +202,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <p>Gets the last computed value of this cell. </p><dl class="section return"><dt>Returns</dt><dd>A tuple with at 0 the last computed value and at 1 the initial value from the input queue. </dd></dl>
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#ae100e1a955ef7faf16cdf85e19e2008e" title="Perform the computation. ">compute</a> </dd></dl>
 
-<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a7b4d9271cb1083f3db08431d2cc160c6">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#a9291cc81eaba18e6d7c472f7d6da59c7">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#af01b34ea5807d8b81159091ea7860d31">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#acc481f2d7efd329e4a2b057860a8a5fa">Systolic::Cell::SquareCell</a>.</p>
+<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a7b4d9271cb1083f3db08431d2cc160c6">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#a9291cc81eaba18e6d7c472f7d6da59c7">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#af01b34ea5807d8b81159091ea7860d31">Systolic::Cell::MultiplicativeCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1CustomCell.html#a62c984f7a6fee660b0cfc15625f9b57b">Systolic::Cell::CustomCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1PowerCell.html#ab9815ef2111d52ea4450a92fa2540cc8">Systolic::Cell::PowerCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#acc481f2d7efd329e4a2b057860a8a5fa">Systolic::Cell::SquareCell</a>.</p>
 
 </div>
 </div>

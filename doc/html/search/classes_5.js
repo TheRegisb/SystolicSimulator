@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['squarecell',['SquareCell',['../classSystolic_1_1Cell_1_1SquareCell.html',1,'Systolic::Cell']]]
+  ['powercell',['PowerCell',['../classSystolic_1_1Cell_1_1PowerCell.html',1,'Systolic::Cell']]]
 ];

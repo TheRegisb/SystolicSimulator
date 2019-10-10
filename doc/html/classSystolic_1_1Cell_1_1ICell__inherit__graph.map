@@ -1,6 +1,8 @@
 <map id="Systolic::Cell::ICell" name="Systolic::Cell::ICell">
 <area shape="rect" id="node2" href="$classSystolic_1_1Cell_1_1AdditiveCell.html" title="Implementation of an ICell for addition operation. " alt="" coords="202,5,381,32"/>
-<area shape="rect" id="node3" href="$classSystolic_1_1Cell_1_1DivisionCell.html" title="Implementation of an ICell for division operation. " alt="" coords="202,56,381,83"/>
-<area shape="rect" id="node4" href="$classSystolic_1_1Cell_1_1MultiplicativeCell.html" title="Implementation of an ICell for multiplicative operation. " alt="" coords="188,107,395,133"/>
-<area shape="rect" id="node5" href="$classSystolic_1_1Cell_1_1SquareCell.html" title="Implementation of an ICell for square operation. " alt="" coords="205,157,377,184"/>
+<area shape="rect" id="node3" href="$classSystolic_1_1Cell_1_1CustomCell.html" title="Implementation of an ICell for square operation. " alt="" coords="203,56,380,83"/>
+<area shape="rect" id="node4" href="$classSystolic_1_1Cell_1_1DivisionCell.html" title="Implementation of an ICell for division operation. " alt="" coords="202,107,381,133"/>
+<area shape="rect" id="node5" href="$classSystolic_1_1Cell_1_1MultiplicativeCell.html" title="Implementation of an ICell for multiplicative operation. " alt="" coords="188,157,395,184"/>
+<area shape="rect" id="node6" href="$classSystolic_1_1Cell_1_1PowerCell.html" title="Implementation of an ICell for square operation. " alt="" coords="207,208,375,235"/>
+<area shape="rect" id="node7" href="$classSystolic_1_1Cell_1_1SquareCell.html" title="Implementation of an ICell for square operation. " alt="" coords="205,259,377,285"/>
 </map>
