@@ -18,7 +18,7 @@
 // under the License.
 
 /**
- * @file AditiveCell.hpp
+ * @file AdditiveCell.hpp
  * Cell dedicated to additions.
  */
 
