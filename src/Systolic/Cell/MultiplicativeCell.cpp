@@ -17,28 +17,35 @@
 // specific language governing permissions and limitations
 // under the License.
 
-#include "Systolic/Container/Container.hpp"
-#include "Systolic/Cell/SquareCell.hpp"
+/**
+ * @file MultiplicativeCell
+ * Implementation of MultiplicativeCell.
+ */
+
 #include "Systolic/Cell/MultiplicativeCell.hpp"
 
-#include <iostream>
-#include <memory>
-#include <tuple>
-
-int main()
+Systolic::Cell::MultiplicativeCell::MultiplicativeCell(const int factor)
+	: current{}, sum(0), factor(factor)
 {
-	Systolic::Container sc({4, 5});
+}
 
-	/*
-	 * TODO cells builder like:
-	 * sc.setCells(new CellArrayBuilder().add(Systolic::Type::SquareCell)
-	 *                                   .add(Systolic::Type::SquareCell)
-	 *                                   .build());
-	 */
-	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
-	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
-	sc.addCell(std::make_unique<Systolic::Cell::MultiplicativeCell>(2));
-	sc.compute();
-	sc.dumpOutputs();
-	return EXIT_SUCCESS;
+std::tuple<int, std::optional<int>> Systolic::Cell::MultiplicativeCell::compute()
+{
+	if (input.has_value()) {
+		current = input.value() * factor;
+		sum += current.value_or(0);
+	} else {
+		current = {}; // Set the value to strictly empty.
+	}
+	return getPartial();
+}
+
+void Systolic::Cell::MultiplicativeCell::feed(const std::optional<int> input)
+{
+	this->input = input;
+}
+
+std::tuple<int, std::optional<int>> Systolic::Cell::MultiplicativeCell::getPartial() const
+{
+	return std::make_tuple(sum, current);
 }

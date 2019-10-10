@@ -34,7 +34,7 @@ std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::compute()
 		current = input.value() * input.value();
 		sum += current.value_or(0);
 	} else {
-		current = {};
+		current = {}; // Set the value to strictly empty.
 	}
 	return getPartial();
 }

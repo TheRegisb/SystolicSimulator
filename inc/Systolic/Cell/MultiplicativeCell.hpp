@@ -18,8 +18,8 @@
 // under the License.
 
 /**
- * @file SquareCell.hpp
- * Cell dedicated to square (X^2) operation.
+ * @file MultiplicativeCell.hpp
+ * Cell dedicated to multiplication.
  */
 
 #pragma once
@@ -32,20 +32,24 @@ namespace Systolic {
 	namespace Cell {
 
 		/**
-		 * Implementation of an ICell for square operation.
-		 * Cell that performs X^2 computation.
+		 * Implementation of an ICell for multiplicative operation.
+		 * Cell that performs X*Y computation, where Y is a constant
+		 * integer defined at cell creation.
 		 */
-		class SquareCell : public ICell {
+		class MultiplicativeCell : public ICell {
 		public:
 			/**
 			 * Default constructor.
+			 * Defines what the constant factor for the computation
+			 * of this cell.
 			 */
-			SquareCell();
+			MultiplicativeCell(const int factor);
 
 			/**
 			 * Perform the computation.
-			 * Does an power-of-two computation based on its
-			 * internal stored value.
+			 * Does an X*Y computation where X is its internal
+			 * stored value and Y is the constant defined at
+			 * the cell creation.
 			 * Replaces its internal stored value by the computed result.
 			 * @return A tuple with
 			 * at 0 the sum of all values that passed down that cell
@@ -57,7 +61,8 @@ namespace Systolic {
 			std::tuple<int, std::optional<int>> getPartial() const override;
 
 		private:
-			std::optional<int> input; /** Value to be used for the next computation. */
+			const int factor; /** Factor of the multiplication. */
+			std::optional<int> input; /** Value to be used for the next comutation. */
 			std::optional<int> current; /** Result of the last computation. */
 			int sum; /** Sum of all values that were computed by this cell. */
 		};
