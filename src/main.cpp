@@ -29,7 +29,7 @@
 
 int main()
 {
-	Systolic::Container sc({4, 5});
+	Systolic::Container sc({1, 2, 3, 4});
 
 	/*
 	 * TODO cells builder like:
@@ -37,11 +37,10 @@ int main()
 	 *                                   .add(Systolic::Type::SquareCell)
 	 *                                   .build());
 	 */
+	/* Example for X² - 4x + 7 (== -4X + X² + 7) */
+	sc.addCell(std::make_unique<Systolic::Cell::MultiplicativeCell>(-4));
 	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
-	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
-	sc.addCell(std::make_unique<Systolic::Cell::MultiplicativeCell>(2));
-	sc.addCell(std::make_unique<Systolic::Cell::DivisionCell>(2));
-	sc.addCell(std::make_unique<Systolic::Cell::AdditiveCell>(-1));
+	sc.addCell(std::make_unique<Systolic::Cell::AdditiveCell>(7));
 	sc.compute();
 	sc.dumpOutputs();
 	return EXIT_SUCCESS;

@@ -23,30 +23,29 @@
  */
 
 #include "Systolic/Cell/DivisionCell.hpp"
-#include <iostream>
 
 Systolic::Cell::DivisionCell::DivisionCell(const int divisor)
-	: current{}, sum(0), divisor(divisor)
+	: divisor(divisor), input{}, sum{}, partial(std::nullopt, std::nullopt)
 {
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::DivisionCell::compute()
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::DivisionCell::compute()
 {
 	if (input.has_value()) {
-		current = input.value() / divisor;
-		sum += current.value_or(0);
+		partial = std::make_tuple(sum.value_or(0) + (input.value() / divisor), input.value());
 	} else {
-		current = {}; // Set the value to strictly empty.
+		partial = std::make_tuple(std::nullopt, std::nullopt);
 	}
-	return getPartial();
+	return partial;
 }
 
-void Systolic::Cell::DivisionCell::feed(const std::optional<int> input)
+void Systolic::Cell::DivisionCell::feed(const std::tuple<std::optional<int>, std::optional<int>> input)
 {
-	this->input = input;
+	this->input = std::get<1>(input);
+	this->sum = std::get<0>(input);
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::DivisionCell::getPartial() const
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::DivisionCell::getPartial() const
 {
-	return std::make_tuple(sum, current);
+	return partial;
 }

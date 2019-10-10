@@ -25,27 +25,27 @@
 #include "Systolic/Cell/AdditiveCell.hpp"
 
 Systolic::Cell::AdditiveCell::AdditiveCell(const int term)
-	: current{}, sum(0), term(term)
+	: term(term), input{}, sum{}, partial(std::nullopt, std::nullopt)
 {
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::AdditiveCell::compute()
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::AdditiveCell::compute()
 {
 	if (input.has_value()) {
-		current = input.value() + term;
-		sum += current.value_or(0);
+		partial = std::make_tuple(sum.value_or(0) + term, input.value());
 	} else {
-		current = {}; // Set the value to strictly empty.
+		partial = std::make_tuple(std::nullopt, std::nullopt);
 	}
-	return getPartial();
+	return partial;
 }
 
-void Systolic::Cell::AdditiveCell::feed(const std::optional<int> input)
+void Systolic::Cell::AdditiveCell::feed(const std::tuple<std::optional<int>, std::optional<int>> input)
 {
-	this->input = input;
+	this->input = std::get<1>(input);
+	this->sum = std::get<0>(input);
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::AdditiveCell::getPartial() const
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::AdditiveCell::getPartial() const
 {
-	return std::make_tuple(sum, current);
+	return partial;
 }

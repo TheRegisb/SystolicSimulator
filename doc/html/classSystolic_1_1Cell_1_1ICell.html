@@ -88,15 +88,15 @@ Inheritance diagram for Systolic::Cell::ICell:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a1eab7d8bc688d45e798f838dc243bfc7"><td class="memItemLeft" align="right" valign="top">virtual std::tuple&lt; int, std::optional&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a1eab7d8bc688d45e798f838dc243bfc7">compute</a> ()=0</td></tr>
-<tr class="memdesc:a1eab7d8bc688d45e798f838dc243bfc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the computation.  <a href="#a1eab7d8bc688d45e798f838dc243bfc7">More...</a><br /></td></tr>
-<tr class="separator:a1eab7d8bc688d45e798f838dc243bfc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76240b1f28d297710909b1248c98e703"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a76240b1f28d297710909b1248c98e703">feed</a> (const std::optional&lt; int &gt; input)=0</td></tr>
-<tr class="memdesc:a76240b1f28d297710909b1248c98e703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Give a new value to the cell for later computation.  <a href="#a76240b1f28d297710909b1248c98e703">More...</a><br /></td></tr>
-<tr class="separator:a76240b1f28d297710909b1248c98e703"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad050e2bbb139c7e040bd2add171f01ea"><td class="memItemLeft" align="right" valign="top">virtual std::tuple&lt; int, std::optional&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#ad050e2bbb139c7e040bd2add171f01ea">getPartial</a> () const =0</td></tr>
-<tr class="memdesc:ad050e2bbb139c7e040bd2add171f01ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current computed value of the cell.  <a href="#ad050e2bbb139c7e040bd2add171f01ea">More...</a><br /></td></tr>
-<tr class="separator:ad050e2bbb139c7e040bd2add171f01ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae100e1a955ef7faf16cdf85e19e2008e"><td class="memItemLeft" align="right" valign="top">virtual std::tuple&lt; std::optional&lt; int &gt;, std::optional&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#ae100e1a955ef7faf16cdf85e19e2008e">compute</a> ()=0</td></tr>
+<tr class="memdesc:ae100e1a955ef7faf16cdf85e19e2008e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the computation.  <a href="#ae100e1a955ef7faf16cdf85e19e2008e">More...</a><br /></td></tr>
+<tr class="separator:ae100e1a955ef7faf16cdf85e19e2008e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f956418e80cae35f412c91e182f0db2"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a8f956418e80cae35f412c91e182f0db2">feed</a> (const std::tuple&lt; std::optional&lt; int &gt;, std::optional&lt; int &gt;&gt; input)=0</td></tr>
+<tr class="memdesc:a8f956418e80cae35f412c91e182f0db2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Give a new value to the cell for later computation.  <a href="#a8f956418e80cae35f412c91e182f0db2">More...</a><br /></td></tr>
+<tr class="separator:a8f956418e80cae35f412c91e182f0db2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aabd7c4edf7e7c39f5dc6c3ca31d28ebb"><td class="memItemLeft" align="right" valign="top">virtual std::tuple&lt; std::optional&lt; int &gt;, std::optional&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#aabd7c4edf7e7c39f5dc6c3ca31d28ebb">getPartial</a> () const =0</td></tr>
+<tr class="memdesc:aabd7c4edf7e7c39f5dc6c3ca31d28ebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current computed value of the cell.  <a href="#aabd7c4edf7e7c39f5dc6c3ca31d28ebb">More...</a><br /></td></tr>
+<tr class="separator:aabd7c4edf7e7c39f5dc6c3ca31d28ebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a74d362511c75ea70d94d5e89a4cfe098"><td class="memItemLeft" align="right" valign="top"><a id="a74d362511c75ea70d94d5e89a4cfe098"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a74d362511c75ea70d94d5e89a4cfe098">~ICell</a> ()</td></tr>
 <tr class="memdesc:a74d362511c75ea70d94d5e89a4cfe098"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default deconstructor. <br /></td></tr>
@@ -106,8 +106,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <div class="textblock"><p>Pure virtual class for Cell class implementation. </p>
 <p>Interface defining the mandatory function to implement in order to be used by cell containers. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1eab7d8bc688d45e798f838dc243bfc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1eab7d8bc688d45e798f838dc243bfc7">&#9670;&nbsp;</a></span>compute()</h2>
+<a id="ae100e1a955ef7faf16cdf85e19e2008e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae100e1a955ef7faf16cdf85e19e2008e">&#9670;&nbsp;</a></span>compute()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -116,7 +116,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::tuple&lt;int, std::optional&lt;int&gt; &gt; Systolic::Cell::ICell::compute </td>
+          <td class="memname">virtual std::tuple&lt;std::optional&lt;int&gt;, std::optional&lt;int&gt; &gt; Systolic::Cell::ICell::compute </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -130,14 +130,14 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div><div class="memdoc">
 
 <p>Perform the computation. </p>
-<p>Does an implementation-dependant computation based on its internal stored value. Replaces its internal stored value by the computed result. </p><dl class="section return"><dt>Returns</dt><dd>A tuple with at 0 the sum of all values that passed down that cell and at 1 the computed value (may be empty on empty value computation). </dd></dl>
+<p>Does an implementation-dependant computation based on its internal stored value. Replaces its internal stored value by the computed result. </p><dl class="section return"><dt>Returns</dt><dd>A tuple with at 0 the new computed value and at 1 the initial value from the input queue. May be empty on empty feeding. </dd></dl>
 
-<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a9dced02c5314e094280627547b4f7c9b">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#ae03281e0803c7848979f455d8dfeff95">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a3766c9e567577bf526e4c0fc136dae5a">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#ab1dcad60a33ff3a35d9284c08cc7cb6e">Systolic::Cell::SquareCell</a>.</p>
+<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a19d01391bc929630524e3045f9a41dc4">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#ad5943ae1080d219fe7704742a0a8d551">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a8b80edcfd9ff47ad0592aca121726b2b">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#a0488aea645b20c535597277296f28c21">Systolic::Cell::SquareCell</a>.</p>
 
 </div>
 </div>
-<a id="a76240b1f28d297710909b1248c98e703"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76240b1f28d297710909b1248c98e703">&#9670;&nbsp;</a></span>feed()</h2>
+<a id="a8f956418e80cae35f412c91e182f0db2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f956418e80cae35f412c91e182f0db2">&#9670;&nbsp;</a></span>feed()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -148,7 +148,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
         <tr>
           <td class="memname">virtual void Systolic::Cell::ICell::feed </td>
           <td>(</td>
-          <td class="paramtype">const std::optional&lt; int &gt;&#160;</td>
+          <td class="paramtype">const std::tuple&lt; std::optional&lt; int &gt;, std::optional&lt; int &gt;&gt;&#160;</td>
           <td class="paramname"><em>input</em></td><td>)</td>
           <td></td>
         </tr>
@@ -167,14 +167,14 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a1eab7d8bc688d45e798f838dc243bfc7" title="Perform the computation. ">compute</a> </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#ae100e1a955ef7faf16cdf85e19e2008e" title="Perform the computation. ">compute</a> </dd></dl>
 
-<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#ab8a78d9add614dcd33a57589fd198aba">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#a41140dfb19612fc529bc772e8783f003">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a05f03f9617e55cac2c4557ce29d01984">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#a1f822ab414a0fac5afa2addc67c91bcb">Systolic::Cell::SquareCell</a>.</p>
+<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a691c8f2bce724c387e47ef23b8b32c57">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#a038beafaca6f3ffd62fec5fb4b4547e6">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a2e58b16cc2dc93079dd84e3775c56531">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#a511163be440b312a988f64ec1e195ac6">Systolic::Cell::SquareCell</a>.</p>
 
 </div>
 </div>
-<a id="ad050e2bbb139c7e040bd2add171f01ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad050e2bbb139c7e040bd2add171f01ea">&#9670;&nbsp;</a></span>getPartial()</h2>
+<a id="aabd7c4edf7e7c39f5dc6c3ca31d28ebb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabd7c4edf7e7c39f5dc6c3ca31d28ebb">&#9670;&nbsp;</a></span>getPartial()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -183,7 +183,7 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual std::tuple&lt;int, std::optional&lt;int&gt; &gt; Systolic::Cell::ICell::getPartial </td>
+          <td class="memname">virtual std::tuple&lt;std::optional&lt;int&gt;, std::optional&lt;int&gt; &gt; Systolic::Cell::ICell::getPartial </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -197,10 +197,10 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </div><div class="memdoc">
 
 <p>Get the current computed value of the cell. </p>
-<p>Gets the last computed value of this cell. </p><dl class="section return"><dt>Returns</dt><dd>A tuple with at 0 the sum of all values that passed down that cell and at 1 the last computed value (may be empty on empty value computation). </dd></dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a1eab7d8bc688d45e798f838dc243bfc7" title="Perform the computation. ">compute</a> </dd></dl>
+<p>Gets the last computed value of this cell. </p><dl class="section return"><dt>Returns</dt><dd>A tuple with at 0 the last computed value and at 1 the initial value from the input queue. </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#ae100e1a955ef7faf16cdf85e19e2008e" title="Perform the computation. ">compute</a> </dd></dl>
 
-<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a4c968f87459a01f314aa4d4a3ef13a09">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#a10b86ebbb077b362044c7ebb7e96281e">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a006bcf3812463e7567ca48780640bc9e">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#a5657cd987ec6bbcec4dd9fe77e6011ad">Systolic::Cell::SquareCell</a>.</p>
+<p>Implemented in <a class="el" href="classSystolic_1_1Cell_1_1AdditiveCell.html#a7b4d9271cb1083f3db08431d2cc160c6">Systolic::Cell::AdditiveCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1DivisionCell.html#a9291cc81eaba18e6d7c472f7d6da59c7">Systolic::Cell::DivisionCell</a>, <a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#af01b34ea5807d8b81159091ea7860d31">Systolic::Cell::MultiplicativeCell</a>, and <a class="el" href="classSystolic_1_1Cell_1_1SquareCell.html#acc481f2d7efd329e4a2b057860a8a5fa">Systolic::Cell::SquareCell</a>.</p>
 
 </div>
 </div>

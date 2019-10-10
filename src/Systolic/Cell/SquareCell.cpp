@@ -23,28 +23,30 @@
  */
 
 #include "Systolic/Cell/SquareCell.hpp"
+#include <iostream>
 
-Systolic::Cell::SquareCell::SquareCell(): current{}, sum(0)
+Systolic::Cell::SquareCell::SquareCell()
+	: input{}, sum{}, partial(std::nullopt, std::nullopt)
 {
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::compute()
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::SquareCell::compute()
 {
 	if (input.has_value()) {
-		current = input.value() * input.value();
-		sum += current.value_or(0);
+		partial = std::make_tuple(sum.value_or(0) + (input.value() * input.value()), input.value());
 	} else {
-		current = {}; // Set the value to strictly empty.
+		partial = std::make_tuple(std::nullopt, std::nullopt);
 	}
-	return getPartial();
+	return partial;
 }
 
-void Systolic::Cell::SquareCell::feed(const std::optional<int> input)
+void Systolic::Cell::SquareCell::feed(const std::tuple<std::optional<int>, std::optional<int>> input)
 {
-	this->input = input;
+	this->input = std::get<1>(input);
+	this->sum = std::get<0>(input).value_or(0);
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::SquareCell::getPartial() const
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::SquareCell::getPartial() const
 {
-	return std::make_tuple(sum, current);
+	return partial;
 }

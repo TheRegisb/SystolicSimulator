@@ -23,6 +23,7 @@
  */
 
 #include "Systolic/Container/Container.hpp"
+#include <cstdlib>
 
 Systolic::Container::Container(const int entries, ...)
 {
@@ -63,27 +64,27 @@ void Systolic::Container::step()
 
 	// Compute the current value of each cells.
 	for (auto &&ptr : cells) {
-		std::tuple<int, std::optional<int>> res = ptr->compute();
+		std::tuple<std::optional<int>, std::optional<int>> res = ptr->compute();
+	}
+
+	// Add the last cell partial (final result) to the output queue if available.
+	std::optional<int> lastCellOutput = std::get<0>(cells.back()->getPartial());
+
+	if (lastCellOutput.has_value()) {
+		outputs.push(lastCellOutput.value());
 	}
 	
 	// Feeds the first cell with a value from the inputs queue.
 	if (!inputs.empty()) {
-		cells.at(0)->feed(inputs.front());
+		cells.at(0)->feed(std::make_tuple(std::nullopt, inputs.front()));
 		inputs.pop();
 	} else {
-		cells.at(0)->feed({}); // Feeds empty value.
+		cells.at(0)->feed(std::make_tuple(std::nullopt, std::nullopt)); // Feeds empty value.
 	}
 
 	// Feed all other cells with the partials of the previous cell.
 	for(std::size_t i = 1; i < cells.size(); i++) {
-		cells.at(i)->feed(std::get<1>(cells.at(i - 1)->getPartial()));
-	}
-
-	// Add the last cell partial (final result) to the output queue if available.
-	std::optional<int> lastCellOutput = std::get<1>(cells.back()->getPartial());
-
-	if (lastCellOutput.has_value()) {
-		outputs.push(lastCellOutput.value());
+		cells.at(i)->feed(cells.at(i - 1)->getPartial());
 	}
 }
 
@@ -99,10 +100,9 @@ void Systolic::Container::compute()
 		std::cerr << "Err: No inputs available." << std::endl;
 		return;
 	}
-	while (outputs.size() != ioSize) { // TODO consider do while
+	do {
 		step();
-	};
-	step();
+	} while (outputs.size() != ioSize);
 }
 
 void Systolic::Container::dumpOutputs() const

@@ -18,34 +18,34 @@
 // under the License.
 
 /**
- * @file MultiplicativeCell
+ * @file MultiplicativeCell.cpp
  * Implementation of MultiplicativeCell.
  */
 
 #include "Systolic/Cell/MultiplicativeCell.hpp"
 
 Systolic::Cell::MultiplicativeCell::MultiplicativeCell(const int factor)
-	: current{}, sum(0), factor(factor)
+	: factor(factor), input{}, sum{}, partial(std::nullopt, std::nullopt)
 {
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::MultiplicativeCell::compute()
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::MultiplicativeCell::compute()
 {
 	if (input.has_value()) {
-		current = input.value() * factor;
-		sum += current.value_or(0);
+		partial = std::make_tuple(sum.value_or(0) + (input.value() * factor), input.value());
 	} else {
-		current = {}; // Set the value to strictly empty.
+		partial = std::make_tuple(std::nullopt, std::nullopt);
 	}
-	return getPartial();
+	return partial;
 }
 
-void Systolic::Cell::MultiplicativeCell::feed(const std::optional<int> input)
+void Systolic::Cell::MultiplicativeCell::feed(const std::tuple<std::optional<int>, std::optional<int>> input)
 {
-	this->input = input;
+	this->input = std::get<1>(input);
+ 	this->sum = std::get<0>(input);
 }
 
-std::tuple<int, std::optional<int>> Systolic::Cell::MultiplicativeCell::getPartial() const
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::MultiplicativeCell::getPartial() const
 {
-	return std::make_tuple(sum, current);
+	return partial;
 }

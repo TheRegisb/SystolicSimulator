@@ -46,18 +46,18 @@ namespace Systolic {
 			 * internal stored value.
 			 * Replaces its internal stored value by the computed result.
 			 * @return A tuple with
-			 * at 0 the sum of all values that passed down that cell
-			 * and at 1 the computed value (may be empty on empty value
-			 * computation).
+			 * at 0 the new computed value
+			 * and at 1 the initial value from the input queue.
+			 * May be empty on empty feeding.
 			 */
-			std::tuple<int, std::optional<int>> compute() override;
-			void feed(const std::optional<int> input) override;
-			std::tuple<int, std::optional<int>> getPartial() const override;
+			std::tuple<std::optional<int>, std::optional<int>> compute() override;
+			void feed(const std::tuple<std::optional<int>, std::optional<int>> input) override;
+			std::tuple<std::optional<int>, std::optional<int>> getPartial() const override;
 
 		private:
 			std::optional<int> input; /** Value to be used for the next computation. */
-			std::optional<int> current; /** Result of the last computation. */
-			int sum; /** Sum of all values that were computed by this cell. */
+			std::optional<int> sum; /** Sum of all values that were computed by this cell. */
+			std::tuple<std::optional<int>, std::optional<int>> partial; /** Last computed value, as (sum, input). */
 		};
 	}
 }

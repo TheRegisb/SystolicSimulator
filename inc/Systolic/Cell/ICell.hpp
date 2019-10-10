@@ -43,11 +43,11 @@ namespace Systolic {
 			 * internal stored value.
 			 * Replaces its internal stored value by the computed result.
 			 * @return A tuple with
-			 * at 0 the sum of all values that passed down that cell
-			 * and at 1 the computed value (may be empty on empty value
-			 * computation).
+			 * at 0 the new computed value
+			 * and at 1 the initial value from the input queue.
+			 * May be empty on empty feeding.
 			 */
-			virtual std::tuple<int, std::optional<int>> compute() = 0;
+			virtual std::tuple<std::optional<int>, std::optional<int>> compute() = 0;
 			/**
 			 * Give a new value to the cell for later computation.
 			 * Stores a new value in the cell, to be used during computation.
@@ -55,17 +55,16 @@ namespace Systolic {
 			 * @param input An optional integer.
 			 * @see compute
 			 */
-			virtual void feed(const std::optional<int> input) = 0;
+			virtual void feed(const std::tuple<std::optional<int>, std::optional<int>> input) = 0;
 			/**
 			 * Get the current computed value of the cell.
 			 * Gets the last computed value of this cell.
 			 * @return A tuple with
-			 * at 0 the sum of all values that passed down that cell
-			 * and at 1 the last computed value (may be empty on empty value
-			 * computation).
+			 * at 0 the last computed value
+			 * and at 1 the initial value from the input queue.
 			 * @see compute
 			 */
-			virtual std::tuple<int, std::optional<int>> getPartial() const = 0;
+			virtual std::tuple<std::optional<int>, std::optional<int>> getPartial() const = 0;
 			/**
 			 * Default deconstructor.
 			 */
