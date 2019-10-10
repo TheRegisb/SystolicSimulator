@@ -17,30 +17,35 @@
 // specific language governing permissions and limitations
 // under the License.
 
-#include "Systolic/Container/Container.hpp"
-#include "Systolic/Cell/SquareCell.hpp"
-#include "Systolic/Cell/MultiplicativeCell.hpp"
+/**
+ * @file AdditiveCell.cpp
+ * Implementation of AdditiveCell.
+ */
+
 #include "Systolic/Cell/AdditiveCell.hpp"
 
-#include <iostream>
-#include <memory>
-#include <tuple>
-
-int main()
+Systolic::Cell::AdditiveCell::AdditiveCell(const int term)
+	: current{}, sum(0), term(term)
 {
-	Systolic::Container sc({4, 5});
+}
 
-	/*
-	 * TODO cells builder like:
-	 * sc.setCells(new CellArrayBuilder().add(Systolic::Type::SquareCell)
-	 *                                   .add(Systolic::Type::SquareCell)
-	 *                                   .build());
-	 */
-	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
-	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
-	sc.addCell(std::make_unique<Systolic::Cell::MultiplicativeCell>(2));
-	sc.addCell(std::make_unique<Systolic::Cell::AdditiveCell>(-1));
-	sc.compute();
-	sc.dumpOutputs();
-	return EXIT_SUCCESS;
+std::tuple<int, std::optional<int>> Systolic::Cell::AdditiveCell::compute()
+{
+	if (input.has_value()) {
+		current = input.value() + term;
+		sum += current.value_or(0);
+	} else {
+		current = {}; // Set the value to strictly empty.
+	}
+	return getPartial();
+}
+
+void Systolic::Cell::AdditiveCell::feed(const std::optional<int> input)
+{
+	this->input = input;
+}
+
+std::tuple<int, std::optional<int>> Systolic::Cell::AdditiveCell::getPartial() const
+{
+	return std::make_tuple(sum, current);
 }

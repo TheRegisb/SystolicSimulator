@@ -43,6 +43,7 @@ include_directories(${CMAKE_SOURCE_DIR}/inc)
 set(SOURCES src/main.cpp
   src/Systolic/Cell/SquareCell.cpp
   src/Systolic/Cell/MultiplicativeCell.cpp
+  src/Systolic/Cell/AdditiveCell.cpp
   src/Systolic/Container.cpp)
 
 add_executable (systolic ${SOURCES})
