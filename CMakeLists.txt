@@ -46,6 +46,7 @@ set(SOURCES src/main.cpp
   src/Systolic/Cell/AdditiveCell.cpp
   src/Systolic/Cell/DivisionCell.cpp
   src/Systolic/Cell/PowerCell.cpp
+  src/Systolic/Cell/CustomCell.cpp
   src/Systolic/Container.cpp)
 
 add_executable (systolic ${SOURCES})

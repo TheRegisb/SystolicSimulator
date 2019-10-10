@@ -18,34 +18,34 @@
 // under the License.
 
 /**
- * @file SquareCell.cpp
- * Implementation of SquareCell.
+ * @file CustomCell.cpp
+ * Implementation of CustomCell.
  */
 
-#include "Systolic/Cell/SquareCell.hpp"
+#include "Systolic/Cell/CustomCell.hpp"
 
-Systolic::Cell::SquareCell::SquareCell()
-	: input{}, sum{}, partial(std::nullopt, std::nullopt)
+Systolic::Cell::CustomCell::CustomCell(const std::function<int(const int)> operation)
+	: operation(operation), input{}, sum{}, partial(std::nullopt, std::nullopt)
 {
 }
 
-std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::SquareCell::compute()
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::CustomCell::compute()
 {
 	if (input.has_value()) {
-		partial = std::make_tuple(sum.value_or(0) + (input.value() * input.value()), input.value());
+		partial = std::make_tuple(sum.value_or(0) + operation(input.value()), input.value());
 	} else {
 		partial = std::make_tuple(std::nullopt, std::nullopt);
 	}
 	return partial;
 }
 
-void Systolic::Cell::SquareCell::feed(const std::tuple<std::optional<int>, std::optional<int>> input)
+void Systolic::Cell::CustomCell::feed(const std::tuple<std::optional<int>, std::optional<int>> input)
 {
 	this->input = std::get<1>(input);
 	this->sum = std::get<0>(input);
 }
 
-std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::SquareCell::getPartial() const
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::CustomCell::getPartial() const
 {
 	return partial;
 }
