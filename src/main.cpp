@@ -21,6 +21,7 @@
 #include "Systolic/Cell/SquareCell.hpp"
 #include "Systolic/Cell/MultiplicativeCell.hpp"
 #include "Systolic/Cell/AdditiveCell.hpp"
+#include "Systolic/Cell/DivisionCell.hpp"
 
 #include <iostream>
 #include <memory>
@@ -39,6 +40,7 @@ int main()
 	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
 	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
 	sc.addCell(std::make_unique<Systolic::Cell::MultiplicativeCell>(2));
+	sc.addCell(std::make_unique<Systolic::Cell::DivisionCell>(2));
 	sc.addCell(std::make_unique<Systolic::Cell::AdditiveCell>(-1));
 	sc.compute();
 	sc.dumpOutputs();
