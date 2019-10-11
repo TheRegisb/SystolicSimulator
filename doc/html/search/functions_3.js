@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['feed',['feed',['../classSystolic_1_1Cell_1_1AdditiveCell.html#a691c8f2bce724c387e47ef23b8b32c57',1,'Systolic::Cell::AdditiveCell::feed()'],['../classSystolic_1_1Cell_1_1CustomCell.html#add06a2f8253bacf8276a5db7ee6aff9c',1,'Systolic::Cell::CustomCell::feed()'],['../classSystolic_1_1Cell_1_1DivisionCell.html#a038beafaca6f3ffd62fec5fb4b4547e6',1,'Systolic::Cell::DivisionCell::feed()'],['../classSystolic_1_1Cell_1_1ICell.html#a8f956418e80cae35f412c91e182f0db2',1,'Systolic::Cell::ICell::feed()'],['../classSystolic_1_1Cell_1_1MultiplicativeCell.html#a2e58b16cc2dc93079dd84e3775c56531',1,'Systolic::Cell::MultiplicativeCell::feed()'],['../classSystolic_1_1Cell_1_1PowerCell.html#a7da2d43f3001abd78b4263ca7e48bced',1,'Systolic::Cell::PowerCell::feed()'],['../classSystolic_1_1Cell_1_1SquareCell.html#a511163be440b312a988f64ec1e195ac6',1,'Systolic::Cell::SquareCell::feed()']]]
+  ['divisioncell',['DivisionCell',['../classSystolic_1_1Cell_1_1DivisionCell.html#ac8f6f304c3b16b498e451ae6f8e36750',1,'Systolic::Cell::DivisionCell']]],
+  ['dumpoutputs',['dumpOutputs',['../classSystolic_1_1Container.html#a90416082ff9c0ae3679d959b9f8a4b87',1,'Systolic::Container']]]
 ];

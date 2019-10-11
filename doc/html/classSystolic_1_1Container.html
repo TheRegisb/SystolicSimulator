@@ -86,6 +86,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a6ebc52ea7e02045a8e9685c6a0e4b9db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Container.html#a6ebc52ea7e02045a8e9685c6a0e4b9db">addCell</a> (std::unique_ptr&lt; <a class="el" href="classSystolic_1_1Cell_1_1ICell.html">Systolic::Cell::ICell</a> &gt; cell)</td></tr>
 <tr class="memdesc:a6ebc52ea7e02045a8e9685c6a0e4b9db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a new cell.  <a href="#a6ebc52ea7e02045a8e9685c6a0e4b9db">More...</a><br /></td></tr>
 <tr class="separator:a6ebc52ea7e02045a8e9685c6a0e4b9db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aece9512543b1f29ecab0a292a6975bf1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Container.html#aece9512543b1f29ecab0a292a6975bf1">setCells</a> (std::vector&lt; std::unique_ptr&lt; <a class="el" href="classSystolic_1_1Cell_1_1ICell.html">Systolic::Cell::ICell</a> &gt;&gt; cells)</td></tr>
+<tr class="memdesc:aece9512543b1f29ecab0a292a6975bf1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize cells.  <a href="#aece9512543b1f29ecab0a292a6975bf1">More...</a><br /></td></tr>
+<tr class="separator:aece9512543b1f29ecab0a292a6975bf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef6401e4cb8aa73e9dd7427331524c31"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Container.html#aef6401e4cb8aa73e9dd7427331524c31">setCells</a> (std::shared_ptr&lt; <a class="el" href="classSystolic_1_1CellArrayBuilder.html">Systolic::CellArrayBuilder</a> &gt; builder)</td></tr>
+<tr class="memdesc:aef6401e4cb8aa73e9dd7427331524c31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize cells.  <a href="#aef6401e4cb8aa73e9dd7427331524c31">More...</a><br /></td></tr>
+<tr class="separator:aef6401e4cb8aa73e9dd7427331524c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6187ccc0b6bd4fc7ac0add615073e864"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Container.html#a6187ccc0b6bd4fc7ac0add615073e864">step</a> ()</td></tr>
 <tr class="memdesc:a6187ccc0b6bd4fc7ac0add615073e864"><td class="mdescLeft">&#160;</td><td class="mdescRight">Single tick on the operation chain.  <a href="#a6187ccc0b6bd4fc7ac0add615073e864">More...</a><br /></td></tr>
 <tr class="separator:a6187ccc0b6bd4fc7ac0add615073e864"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -231,6 +237,64 @@ std::queue&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a cl
 
 <p>Display the current content of the output queue. </p>
 <p>Displays all values contained within the output queue on the standard output, in a First In, First Out manner. </p>
+
+</div>
+</div>
+<a id="aece9512543b1f29ecab0a292a6975bf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aece9512543b1f29ecab0a292a6975bf1">&#9670;&nbsp;</a></span>setCells() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Systolic::Container::setCells </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classSystolic_1_1Cell_1_1ICell.html">Systolic::Cell::ICell</a> &gt;&gt;&#160;</td>
+          <td class="paramname"><em>cells</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize cells. </p>
+<p>Initializes all the cells from the given vector. The vector is moved and so becomes invalid after a call to this function. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cells</td><td>Vector with all cell to use in order. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aef6401e4cb8aa73e9dd7427331524c31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef6401e4cb8aa73e9dd7427331524c31">&#9670;&nbsp;</a></span>setCells() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Systolic::Container::setCells </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="classSystolic_1_1CellArrayBuilder.html">Systolic::CellArrayBuilder</a> &gt;&#160;</td>
+          <td class="paramname"><em>builder</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize cells. </p>
+<p>Initializes all the cells with the current instance of the builder. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">builder</td><td><a class="el" href="classSystolic_1_1CellArrayBuilder.html" title="Systolic array builder. ">CellArrayBuilder</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if builder is null. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

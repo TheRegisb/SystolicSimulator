@@ -1,3 +1,9 @@
 <map id="inc/Systolic/Cell/PowerCell.hpp" name="inc/Systolic/Cell/PowerCell.hpp">
-<area shape="rect" id="node2" href="$PowerCell_8cpp.html" title="Implementation of PowerCell. " alt="" coords="5,80,212,107"/>
+<area shape="rect" id="node2" href="$Types_8hpp.html" title="Enum refering to the type of cells. " alt="" coords="157,80,339,107"/>
+<area shape="rect" id="node8" href="$PowerCell_8cpp.html" title="Implementation of PowerCell. " alt="" coords="363,80,570,107"/>
+<area shape="rect" id="node3" href="$CellArrayBuilder_8hpp.html" title="Builder of vector&lt;unique_ptr&lt;ICell&gt;&gt;. " alt="" coords="173,155,323,196"/>
+<area shape="rect" id="node4" href="$Container_8hpp.html" title="Default cell container and runner. " alt="" coords="59,244,210,285"/>
+<area shape="rect" id="node5" href="$Systolic_8hpp.html" title="Convenience header, and also the Doxygen main page. " alt="" coords="206,333,373,360"/>
+<area shape="rect" id="node7" href="$CellArrayBuilder_8cpp.html" title="Implementation of CellArrayBuilder. " alt="" coords="286,251,501,278"/>
+<area shape="rect" id="node6" href="$Container_8cpp.html" title="Implementation of Container. " alt="" coords="5,333,181,360"/>
 </map>

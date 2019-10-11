@@ -1,0 +1,7 @@
+<map id="inc/Systolic/Cell/Types.hpp" name="inc/Systolic/Cell/Types.hpp">
+<area shape="rect" id="node2" href="$CellArrayBuilder_8hpp.html" title="Builder of vector&lt;unique_ptr&lt;ICell&gt;&gt;. " alt="" coords="173,80,323,121"/>
+<area shape="rect" id="node3" href="$Container_8hpp.html" title="Default cell container and runner. " alt="" coords="59,169,210,211"/>
+<area shape="rect" id="node4" href="$Systolic_8hpp.html" title="Convenience header, and also the Doxygen main page. " alt="" coords="206,259,373,285"/>
+<area shape="rect" id="node6" href="$CellArrayBuilder_8cpp.html" title="Implementation of CellArrayBuilder. " alt="" coords="286,177,501,203"/>
+<area shape="rect" id="node5" href="$Container_8cpp.html" title="Implementation of Container. " alt="" coords="5,259,181,285"/>
+</map>

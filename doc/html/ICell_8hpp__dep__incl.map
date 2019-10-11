@@ -1,16 +1,20 @@
 <map id="inc/Systolic/Cell/ICell.hpp" name="inc/Systolic/Cell/ICell.hpp">
-<area shape="rect" id="node2" href="$AdditiveCell_8hpp.html" title="Cell dedicated to additions. " alt="" coords="7,80,175,121"/>
-<area shape="rect" id="node4" href="$CustomCell_8hpp.html" title="Cell dedicated to custom operation. " alt="" coords="200,80,367,121"/>
-<area shape="rect" id="node6" href="$DivisionCell_8hpp.html" title="Cell dedicated to division. " alt="" coords="393,80,561,121"/>
-<area shape="rect" id="node8" href="$MultiplicativeCell_8hpp.html" title="Cell dedicated to multiplication. " alt="" coords="586,80,783,121"/>
-<area shape="rect" id="node10" href="$PowerCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="808,87,1015,114"/>
-<area shape="rect" id="node12" href="$SquareCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="1039,80,1202,121"/>
-<area shape="rect" id="node14" href="$Container_8hpp.html" title="Defaukt cell container and runner. " alt="" coords="1232,80,1383,121"/>
-<area shape="rect" id="node3" href="$AdditiveCell_8cpp.html" title="Implementation of AdditiveCell. " alt="" coords="5,169,175,211"/>
-<area shape="rect" id="node5" href="$CustomCell_8cpp.html" title="Implementation of CustomCell. " alt="" coords="199,169,367,211"/>
-<area shape="rect" id="node7" href="$DivisionCell_8cpp.html" title="Implementation of DivisionCell. " alt="" coords="392,169,561,211"/>
-<area shape="rect" id="node9" href="$MultiplicativeCell_8cpp.html" title="Implementation of MultiplicativeCell. " alt="" coords="585,169,784,211"/>
-<area shape="rect" id="node11" href="$PowerCell_8cpp.html" title="Implementation of PowerCell. " alt="" coords="808,177,1015,203"/>
-<area shape="rect" id="node13" href="$SquareCell_8cpp.html" title="Implementation of SquareCell. " alt="" coords="1039,169,1202,211"/>
-<area shape="rect" id="node15" href="$Container_8cpp.html" title="Implementation of Container. " alt="" coords="1226,177,1402,203"/>
+<area shape="rect" id="node2" href="$AdditiveCell_8hpp.html" title="Cell dedicated to additions. " alt="" coords="1159,80,1327,121"/>
+<area shape="rect" id="node3" href="$Types_8hpp.html" title="Enum refering to the type of cells. " alt="" coords="651,177,834,203"/>
+<area shape="rect" id="node6" href="$Systolic_8hpp.html" title="Convenience header, and also the Doxygen main page. " alt="" coords="415,437,582,464"/>
+<area shape="rect" id="node10" href="$CustomCell_8hpp.html" title="Cell dedicated to custom operation. " alt="" coords="85,80,251,121"/>
+<area shape="rect" id="node12" href="$DivisionCell_8hpp.html" title="Cell dedicated to division. " alt="" coords="276,80,444,121"/>
+<area shape="rect" id="node14" href="$MultiplicativeCell_8hpp.html" title="Cell dedicated to multiplication. " alt="" coords="468,80,665,121"/>
+<area shape="rect" id="node16" href="$PowerCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="741,87,947,114"/>
+<area shape="rect" id="node18" href="$SquareCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="972,80,1135,121"/>
+<area shape="rect" id="node9" href="$AdditiveCell_8cpp.html" title="Implementation of AdditiveCell. " alt="" coords="1277,169,1446,211"/>
+<area shape="rect" id="node4" href="$CellArrayBuilder_8hpp.html" title="Builder of vector&lt;unique_ptr&lt;ICell&gt;&gt;. " alt="" coords="610,259,761,300"/>
+<area shape="rect" id="node5" href="$Container_8hpp.html" title="Default cell container and runner. " alt="" coords="723,348,874,389"/>
+<area shape="rect" id="node8" href="$CellArrayBuilder_8cpp.html" title="Implementation of CellArrayBuilder. " alt="" coords="433,355,647,382"/>
+<area shape="rect" id="node7" href="$Container_8cpp.html" title="Implementation of Container. " alt="" coords="711,437,887,464"/>
+<area shape="rect" id="node11" href="$CustomCell_8cpp.html" title="Implementation of CustomCell. " alt="" coords="43,169,211,211"/>
+<area shape="rect" id="node13" href="$DivisionCell_8cpp.html" title="Implementation of DivisionCell. " alt="" coords="235,169,405,211"/>
+<area shape="rect" id="node15" href="$MultiplicativeCell_8cpp.html" title="Implementation of MultiplicativeCell. " alt="" coords="429,169,627,211"/>
+<area shape="rect" id="node17" href="$PowerCell_8cpp.html" title="Implementation of PowerCell. " alt="" coords="858,177,1065,203"/>
+<area shape="rect" id="node19" href="$SquareCell_8cpp.html" title="Implementation of SquareCell. " alt="" coords="1089,169,1252,211"/>
 </map>
