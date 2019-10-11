@@ -68,6 +68,10 @@ namespace Systolic {
 		 */
 		std::vector<std::unique_ptr<Systolic::Cell::ICell>> build();
 	private:
+		static void *operator new(size_t) = delete;
+		static void *operator new[](size_t) = delete;
+		static void operator delete(void *) = delete;
+		static void operator delete[](void *) = delete;
 		std::unique_ptr<Systolic::Cell::ICell> getInstanceFromEnum(const Systolic::Cell::Types type,
 									   const int term);
 		std::vector<std::unique_ptr<Systolic::Cell::ICell>> cellArray;
