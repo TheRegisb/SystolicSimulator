@@ -17,31 +17,30 @@
 // specific language governing permissions and limitations
 // under the License.
 
-#include "Systolic/Container/Container.hpp"
-#include "Systolic/Cell/SquareCell.hpp"
-#include "Systolic/Cell/MultiplicativeCell.hpp"
-#include "Systolic/Cell/AdditiveCell.hpp"
-#include "Systolic/Cell/DivisionCell.hpp"
-
-#include <iostream>
-#include <memory>
-#include <tuple>
+#include "Systolic/Systolic.hpp"
 
 int main()
 {
+	/* Example for X² - 4x + 7 (== -4X + X² + 7) */
 	Systolic::Container sc({1, 2, 3, 4});
 
-	/*
-	 * TODO cells builder like:
-	 * sc.setCells(new CellArrayBuilder().add(Systolic::Type::SquareCell)
-	 *                                   .add(Systolic::Type::SquareCell)
-	 *                                   .build());
-	 */
-	/* Example for X² - 4x + 7 (== -4X + X² + 7) */
-	sc.addCell(std::make_unique<Systolic::Cell::MultiplicativeCell>(-4));
-	sc.addCell(std::make_unique<Systolic::Cell::SquareCell>());
-	sc.addCell(std::make_unique<Systolic::Cell::AdditiveCell>(7));
+	sc.setCells(Systolic::CellArrayBuilder::getNew()
+		    ->add(Systolic::Cell::Types::Multiplication, -4)
+		    ->add(Systolic::Cell::Types::Square)
+		    ->add(Systolic::Cell::Types::Addition, 7));
 	sc.compute();
 	sc.dumpOutputs();
+	
+	/* Example for x³/4 + 3x2/4 − 3x/2 − 2 NOTE: integral truncature DOES impact negatively the result */
+	Systolic::Container sc2(4, 1, 2, 3, 4); // C-Style va-arg.
+	sc2.setCells(Systolic::CellArrayBuilder::getNew()
+		     ->add(Systolic::Cell::Types::Custom, [] (const int x) { return (x * x * x) / 4; })
+		     ->add(Systolic::Cell::Types::Custom, [] (const int x) { return 3 * (x * x) / 4; })
+		     ->add(Systolic::Cell::Types::Custom, [] (const int x) { return -3 * x / 4; })
+		     ->add(Systolic::Cell::Types::Addition, -2)
+		     ->build()); // Explicit call to build can be ommited.
+	sc2.compute();
+	sc2.dumpOutputs();
+
 	return EXIT_SUCCESS;
 }

@@ -18,26 +18,33 @@
 // under the License.
 
 /**
- * @file Systolic.hpp
- * Convenience header, and also the Doxygen main page.
+ * @file Types.hpp
+ * Enum refering to the type of cells.
  */
 
 #pragma once
 
 #include "Systolic/Cell/ICell.hpp"
-#include "Systolic/Cell/Types.hpp"
-#include "Systolic/Container/Container.hpp"
-#include "Systolic/Container/CellArrayBuilder.hpp"
+#include "Systolic/Cell/AdditiveCell.hpp"
+#include "Systolic/Cell/MultiplicativeCell.hpp"
+#include "Systolic/Cell/DivisionCell.hpp"
+#include "Systolic/Cell/SquareCell.hpp"
+#include "Systolic/Cell/PowerCell.hpp"
+#include "Systolic/Cell/CustomCell.hpp"
 
-/*! \mainpage Systolic Simulator
- * \section Presentation
- * Simulation of the flow of systolic algorithms; where computational
- * unit called "cell" are working on parallel, computing the result
- * given by the last cell before feeding the result into the next one.
- *
- * More to come later.
- *
- * <hr>
- * \section Credits
- * BERTHELOT Régis, 2019.
- */
+namespace Systolic {
+	namespace Cell {
+
+		/**
+		 * 1:1 descriptor of all other exiting cells.
+		 */
+		enum class Types {
+			Addition, /** Reference to AdditiveCell. */
+			Multiplication, /** Reference to MultiplicativeCell. */
+			Division, /** Reference to DivisionCell. */
+			Square, /** Reference to SquareCell. */
+			Power, /** Reference to PowerCell. */
+			Custom /** Reference to CustomCell. */
+		};
+	}
+}

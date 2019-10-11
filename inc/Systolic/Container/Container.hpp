@@ -24,7 +24,8 @@
 
 #pragma once
 
-#include "Systolic/Cell/ICell.hpp"
+#include "Systolic/Cell/Types.hpp"
+#include "Systolic/Container/CellArrayBuilder.hpp"
 
 #include <iostream>
 #include <memory>
@@ -68,7 +69,22 @@ namespace Systolic {
 		 * operation chain.
 		 * @param cell An instance of an ICell derivative.
 		 */
-		void addCell(std::unique_ptr<Systolic::Cell::ICell> cell); // TODO Consider builder
+		[[deprecated("Consider using setCells instead.")]]
+		void addCell(std::unique_ptr<Systolic::Cell::ICell> cell);
+		/**
+		 * Initialize cells.
+		 * Initializes all the cells from the given vector.
+		 * The vector is moved and so becomes invalid after a call to this function.
+		 * @param cells Vector with all cell to use in order.
+		 */
+		void setCells(std::vector<std::unique_ptr<Systolic::Cell::ICell>> cells);
+		/**
+		 * Initialize cells.
+		 * Initializes all the cells with the current instance of the builder.
+		 * @param builder CellArrayBuilder.
+		 * @throws std::invalid_argument if builder is null.
+		 */
+		void setCells(std::shared_ptr<Systolic::CellArrayBuilder> builder);
 		/**
 		 * Single tick on the operation chain.
 		 * Provoke each registered cell to compute their current

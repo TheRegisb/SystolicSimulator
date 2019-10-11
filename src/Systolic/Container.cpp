@@ -42,7 +42,7 @@ Systolic::Container::Container(const std::initializer_list<const int> entries)
 	}
 }
 
-void Systolic::Container::addCell(std::unique_ptr<Systolic::Cell::ICell> cell)
+void Systolic::Container::addCell(std::unique_ptr<Systolic::Cell::ICell> cell) // Deprecated
 {
 	if (cell == nullptr) {
 		std::cerr << "Warn: Trying to add NULL cell; addCell call ignored." << std::endl;
@@ -53,6 +53,19 @@ void Systolic::Container::addCell(std::unique_ptr<Systolic::Cell::ICell> cell)
 		return;
 	}
 	cells.push_back(std::move(cell));
+}
+
+void Systolic::Container::setCells(std::vector<std::unique_ptr<Systolic::Cell::ICell>> cells)
+{
+	this->cells = std::move(cells);
+}
+
+void Systolic::Container::setCells(std::shared_ptr<Systolic::CellArrayBuilder> builder)
+{
+	if (builder == nullptr) {
+		throw std::invalid_argument("Builder is NULL.");
+	}
+	this->cells = builder->build();
 }
 
 void Systolic::Container::step()
