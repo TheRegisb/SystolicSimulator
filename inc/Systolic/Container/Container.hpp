@@ -28,6 +28,9 @@
 #include "Systolic/Container/CellArrayBuilder.hpp"
 
 #include <iostream>
+#include <iomanip>
+#include <string>
+#include <sstream>
 #include <memory>
 #include <algorithm>
 #include <initializer_list>
@@ -114,10 +117,29 @@ namespace Systolic {
 		 * Get a copy of the current output queue.
 		 */
 		std::queue<int> getOutputs() const;
+
+		/**
+		 * Get a textual representation of the current state.
+		 * Get a string visually representing the current state
+		 * of the board, its cells and input/output.
+		 * @return A visual textual log.
+		 */
+		std::string getCurrentStateLog() const;
+		/**
+		 * Get a textual representation of past and current states.
+		 * Get a string visually representing the cells' content and
+		 * the container input/output for past states as well as 
+		 * the current one, 
+		 * @return A visual textual log.
+		 */
+		std::string getLog() const;
 	private:
 		std::vector<std::unique_ptr<Systolic::Cell::ICell>> cells;
 		std::queue<int> inputs;
 		std::queue<int> outputs;
-		// TODO log debug/execution info in a stringstream
+		std::vector<std::string> logs;
+
+		std::string makeLogEntry() const;
+		std::string optionalToString(std::optional<int> value) const;
 	};
 }

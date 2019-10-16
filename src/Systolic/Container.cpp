@@ -23,7 +23,6 @@
  */
 
 #include "Systolic/Container/Container.hpp"
-#include <cstdlib>
 
 Systolic::Container::Container(const int entries, ...)
 {
@@ -114,8 +113,10 @@ void Systolic::Container::compute()
 		return;
 	}
 	do {
+		logs.push_back(makeLogEntry());
 		step();
 	} while (outputs.size() != ioSize);
+	logs.push_back(makeLogEntry());
 }
 
 void Systolic::Container::dumpOutputs() const
@@ -131,4 +132,77 @@ void Systolic::Container::dumpOutputs() const
 std::queue<int> Systolic::Container::getOutputs() const
 {
 	return outputs;
+}
+
+std::string Systolic::Container::getCurrentStateLog() const
+{
+	return logs.back();
+}
+
+std::string Systolic::Container::getLog() const
+{
+	std::stringstream ss;
+
+	for (std::string entry : logs) {
+		ss << entry << std::endl;
+	}
+	return ss.str();
+}
+
+std::string Systolic::Container::makeLogEntry() const
+{
+	std::stringstream ss;
+
+	/* Step header. */
+	ss << "###################"
+	   << std::endl
+	   << "# Step No. "
+	   << std::setw(6) << std::right << logs.size() << " #"
+	   << std::endl
+	   << "###################"
+	   << std::endl;
+
+	/* Displaying remaning values waiting in the input queue. */
+	ss << "inputs: ";
+	for (std::queue<int> iCopy = inputs; iCopy.size() > 0; iCopy.pop()) {
+		ss << iCopy.front() << (iCopy.size() != 1 ? ", " : "");
+	}
+	ss << std::endl << std::endl;
+	
+	/* Displaying the inputs of the cells on the left side and its partials on the right. */
+	for (std::size_t i = 0; i != cells.size(); i++) {
+		/* First line (sums). */
+		ss << std::setw(8) << optionalToString(std::get<0>(cells.at(i)->getInputs()))
+		   << " -- |" << std::setw(19) << std::setfill('-') << "| -- " << std::setfill(' ')
+		   << optionalToString(std::get<0>(cells.at(i)->getPartial()))
+		   << std::endl
+		/* Middle line (cell description) */	
+		   << std::setw(14) << "| "
+		   << std::setw(12) << std::left << cells.at(i)->getCellDescription() << std::right
+		   << " | "
+		   << std::endl
+		/* Bottom line (inputs). */
+		   << std::setw(8) << optionalToString(std::get<1>(cells.at(i)->getInputs()))
+		   << " -- |" << std::setw(19) << std::setfill('-') << "| -- " << std::setfill(' ')
+		   << optionalToString(std::get<1>(cells.at(i)->getPartial()))
+		   << std::endl << std::endl;
+	}
+	ss << "outputs: ";
+	
+	/* Displaying the values stored in the outputs queue. */
+	for (std::queue<int> oCopy = outputs; oCopy.size() > 0; oCopy.pop()) {
+		ss << oCopy.front() << (oCopy.size() != 1 ? ", " : "");
+	}
+	ss << std::endl;
+	
+	return ss.str();
+}
+
+std::string Systolic::Container::optionalToString(std::optional<int> value) const
+{
+	if (value.has_value()) {
+		return std::to_string(value.value());
+	} else {
+		return "{}";
+	}
 }
