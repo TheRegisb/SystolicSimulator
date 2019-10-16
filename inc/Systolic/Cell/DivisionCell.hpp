@@ -57,6 +57,8 @@ namespace Systolic {
 			std::tuple<std::optional<int>, std::optional<int>> compute() override;
 			void feed(const std::tuple<std::optional<int>, std::optional<int>> input) override;
 			std::tuple<std::optional<int>, std::optional<int>> getPartial() const override;
+			std::tuple<std::optional<int>, std::optional<int>> getInputs() const override;
+			std::string getCellDescription() const override;
 
 		private:
 			const int divisor; /** Divisor for the computation. */

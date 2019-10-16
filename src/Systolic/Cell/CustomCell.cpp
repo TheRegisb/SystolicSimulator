@@ -49,3 +49,13 @@ std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::CustomCell::g
 {
 	return partial;
 }
+
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::CustomCell::getInputs() const
+{
+	return std::make_tuple(sum, input);
+}
+
+std::string Systolic::Cell::CustomCell::getCellDescription() const
+{
+	return "+ Custom";
+}

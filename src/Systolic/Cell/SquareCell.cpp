@@ -49,3 +49,13 @@ std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::SquareCell::g
 {
 	return partial;
 }
+
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::SquareCell::getInputs() const
+{
+	return std::make_tuple(sum, input);
+}
+
+std::string Systolic::Cell::SquareCell::getCellDescription() const
+{
+	return "+ X^2";
+}

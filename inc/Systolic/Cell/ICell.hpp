@@ -66,6 +66,20 @@ namespace Systolic {
 			 */
 			virtual std::tuple<std::optional<int>, std::optional<int>> getPartial() const = 0;
 			/**
+			 * Get the inputs for the next computation.
+			 * Get the last values fed to the cells.
+			 * @return The last values fed to the cells,
+			 * with at (0) the current sum
+			 * and at (1) the original input.
+			 ù @see feed
+			 */
+			virtual std::tuple<std::optional<int>, std::optional<int>> getInputs() const = 0;
+			/**
+			 * Get a generic description of the cell.
+			 * @return An implementation-dependant string.
+			 */
+			virtual std::string getCellDescription() const = 0;
+			/**
 			 * Default deconstructor.
 			 */
 			virtual ~ICell() {};

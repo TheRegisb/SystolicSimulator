@@ -49,3 +49,13 @@ std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::AdditiveCell:
 {
 	return partial;
 }
+
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::AdditiveCell::getInputs() const
+{
+	return std::make_tuple(sum, input);
+}
+
+std::string Systolic::Cell::AdditiveCell::getCellDescription() const
+{
+	return (std::string((term > 0 ? "+ " : " "))  + std::to_string(term));
+}

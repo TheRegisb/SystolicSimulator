@@ -49,3 +49,13 @@ std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::DivisionCell:
 {
 	return partial;
 }
+
+std::tuple<std::optional<int>, std::optional<int>> Systolic::Cell::DivisionCell::getInputs() const
+{
+	return std::make_tuple(sum, input);
+}
+
+std::string Systolic::Cell::DivisionCell::getCellDescription() const
+{
+	return ("+ X / " + std::to_string(divisor));
+}
