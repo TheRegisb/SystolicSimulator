@@ -105,6 +105,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:af01b34ea5807d8b81159091ea7860d31"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; std::optional&lt; int &gt;, std::optional&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#af01b34ea5807d8b81159091ea7860d31">getPartial</a> () const override</td></tr>
 <tr class="memdesc:af01b34ea5807d8b81159091ea7860d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current computed value of the cell.  <a href="#af01b34ea5807d8b81159091ea7860d31">More...</a><br /></td></tr>
 <tr class="separator:af01b34ea5807d8b81159091ea7860d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea738b869eae4bd8b8e51daf3a1862aa"><td class="memItemLeft" align="right" valign="top">std::tuple&lt; std::optional&lt; int &gt;, std::optional&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#aea738b869eae4bd8b8e51daf3a1862aa">getInputs</a> () const override</td></tr>
+<tr class="memdesc:aea738b869eae4bd8b8e51daf3a1862aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the inputs for the next computation.  <a href="#aea738b869eae4bd8b8e51daf3a1862aa">More...</a><br /></td></tr>
+<tr class="separator:aea738b869eae4bd8b8e51daf3a1862aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc218c853f9b89f04832dd1ca13ad154"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#adc218c853f9b89f04832dd1ca13ad154">getCellDescription</a> () const override</td></tr>
+<tr class="memdesc:adc218c853f9b89f04832dd1ca13ad154"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a generic description of the cell.  <a href="#adc218c853f9b89f04832dd1ca13ad154">More...</a><br /></td></tr>
+<tr class="separator:adc218c853f9b89f04832dd1ca13ad154"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_classSystolic_1_1Cell_1_1ICell"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_classSystolic_1_1Cell_1_1ICell')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="classSystolic_1_1Cell_1_1ICell.html">Systolic::Cell::ICell</a></td></tr>
 <tr class="memitem:a74d362511c75ea70d94d5e89a4cfe098 inherit pub_methods_classSystolic_1_1Cell_1_1ICell"><td class="memItemLeft" align="right" valign="top"><a id="a74d362511c75ea70d94d5e89a4cfe098"></a>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a74d362511c75ea70d94d5e89a4cfe098">~ICell</a> ()</td></tr>
@@ -201,6 +207,67 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a8b80edcfd9ff47ad0592aca121726b2b" title="Perform the computation. ">compute</a> </dd></dl>
 
 <p>Implements <a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a8f956418e80cae35f412c91e182f0db2">Systolic::Cell::ICell</a>.</p>
+
+</div>
+</div>
+<a id="adc218c853f9b89f04832dd1ca13ad154"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc218c853f9b89f04832dd1ca13ad154">&#9670;&nbsp;</a></span>getCellDescription()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Systolic::Cell::MultiplicativeCell::getCellDescription </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a generic description of the cell. </p>
+<dl class="section return"><dt>Returns</dt><dd>An implementation-dependant string. </dd></dl>
+
+<p>Implements <a class="el" href="classSystolic_1_1Cell_1_1ICell.html#ad620968971bd249aeea3460606109552">Systolic::Cell::ICell</a>.</p>
+
+</div>
+</div>
+<a id="aea738b869eae4bd8b8e51daf3a1862aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea738b869eae4bd8b8e51daf3a1862aa">&#9670;&nbsp;</a></span>getInputs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::tuple&lt; std::optional&lt; int &gt;, std::optional&lt; int &gt; &gt; Systolic::Cell::MultiplicativeCell::getInputs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the inputs for the next computation. </p>
+<p>Get the last values fed to the cells. </p><dl class="section return"><dt>Returns</dt><dd>The last values fed to the cells, with at (0) the current sum and at (1) the original input. ù </dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="classSystolic_1_1Cell_1_1MultiplicativeCell.html#a2e58b16cc2dc93079dd84e3775c56531" title="Give a new value to the cell for later computation. ">feed</a> </dd></dl>
+
+<p>Implements <a class="el" href="classSystolic_1_1Cell_1_1ICell.html#a8b9eeb6336b694c4e59bb20e2ae9580b">Systolic::Cell::ICell</a>.</p>
 
 </div>
 </div>

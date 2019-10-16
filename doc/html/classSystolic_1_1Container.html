@@ -105,6 +105,12 @@ Public Member Functions</h2></td></tr>
 std::queue&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Container.html#a6e64346efa431910b3c0e53dded7a0c9">getOutputs</a> () const</td></tr>
 <tr class="memdesc:a6e64346efa431910b3c0e53dded7a0c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a copy of the current output queue. <br /></td></tr>
 <tr class="separator:a6e64346efa431910b3c0e53dded7a0c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab01aaadef823a12172503672dbc6148d"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Container.html#ab01aaadef823a12172503672dbc6148d">getCurrentStateLog</a> () const</td></tr>
+<tr class="memdesc:ab01aaadef823a12172503672dbc6148d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a textual representation of the current state.  <a href="#ab01aaadef823a12172503672dbc6148d">More...</a><br /></td></tr>
+<tr class="separator:ab01aaadef823a12172503672dbc6148d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9533178e88b1aa9bb62be1cf664a73a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1Container.html#ab9533178e88b1aa9bb62be1cf664a73a">getLog</a> () const</td></tr>
+<tr class="memdesc:ab9533178e88b1aa9bb62be1cf664a73a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a textual representation of past and current states.  <a href="#ab9533178e88b1aa9bb62be1cf664a73a">More...</a><br /></td></tr>
+<tr class="separator:ab9533178e88b1aa9bb62be1cf664a73a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Cell container and runner. </p>
@@ -237,6 +243,46 @@ std::queue&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a cl
 
 <p>Display the current content of the output queue. </p>
 <p>Displays all values contained within the output queue on the standard output, in a First In, First Out manner. </p>
+
+</div>
+</div>
+<a id="ab01aaadef823a12172503672dbc6148d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab01aaadef823a12172503672dbc6148d">&#9670;&nbsp;</a></span>getCurrentStateLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Systolic::Container::getCurrentStateLog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a textual representation of the current state. </p>
+<p>Get a string visually representing the current state of the board, its cells and input/output. </p><dl class="section return"><dt>Returns</dt><dd>A visual textual log. </dd></dl>
+
+</div>
+</div>
+<a id="ab9533178e88b1aa9bb62be1cf664a73a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9533178e88b1aa9bb62be1cf664a73a">&#9670;&nbsp;</a></span>getLog()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Systolic::Container::getLog </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a textual representation of past and current states. </p>
+<p>Get a string visually representing the cells' content and the container input/output for past states as well as the current one, </p><dl class="section return"><dt>Returns</dt><dd>A visual textual log. </dd></dl>
 
 </div>
 </div>
