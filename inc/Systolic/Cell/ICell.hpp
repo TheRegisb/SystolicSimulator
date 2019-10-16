@@ -47,7 +47,7 @@ namespace Systolic {
 			 * and at 1 the initial value from the input queue.
 			 * May be empty on empty feeding.
 			 */
-			virtual std::tuple<std::optional<int>, std::optional<int>> compute() = 0;
+			virtual std::tuple<std::optional<int>, std::optional<int>> compute() = 0; // TODO ùake it friendly only for Container.
 			/**
 			 * Give a new value to the cell for later computation.
 			 * Stores a new value in the cell, to be used during computation.
