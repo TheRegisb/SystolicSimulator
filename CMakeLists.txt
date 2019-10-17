@@ -42,6 +42,7 @@ include_directories(${CMAKE_SOURCE_DIR}/inc)
 
 # Files to compile
 set(SOURCES src/main.cpp
+  src/Util/Parser.cpp
   src/Systolic/Cell/SquareCell.cpp
   src/Systolic/Cell/MultiplicativeCell.cpp
   src/Systolic/Cell/AdditiveCell.cpp
