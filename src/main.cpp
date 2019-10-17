@@ -19,28 +19,17 @@
 
 #include "Systolic/Systolic.hpp"
 
-int main()
+int main(void)
 {
-	/* Example for X² - 4x + 7 (== -4X + X² + 7) */
-	Systolic::Container sc({1, 2, 3, 4});
+	/* Example for 2x³ - 6x² + 2x - 1 */
+	Systolic::Container sc3({3, 4, 5, 6, 7});
 
-	sc.setCells(Systolic::CellArrayBuilder::getNew()
-		    ->add(Systolic::Cell::Types::Multiplication, -4)
-		    ->add(Systolic::Cell::Types::Square)
-		    ->add(Systolic::Cell::Types::Addition, 7));
-	sc.compute();
-	sc.dumpOutputs();
-	
-	/* Example for x³/4 + 3x2/4 − 3x/2 − 2 NOTE: integral truncature DOES impact negatively the result */
-	Systolic::Container sc2(4, 1, 2, 3, 4); // C-Style va-arg.
-	sc2.setCells(Systolic::CellArrayBuilder::getNew()
-		     ->add(Systolic::Cell::Types::Custom, [] (const int x) { return (x * x * x) / 4; })
-		     ->add(Systolic::Cell::Types::Custom, [] (const int x) { return 3 * (x * x) / 4; })
-		     ->add(Systolic::Cell::Types::Custom, [] (const int x) { return -3 * x / 4; })
-		     ->add(Systolic::Cell::Types::Addition, -2)
-		     ->build()); // Explicit call to build can be ommited.
-	sc2.compute();
-	sc2.dumpOutputs();
-
+	sc3.setCells(Systolic::CellArrayBuilder::getNew()
+		    ->add(Systolic::Cell::Types::Polynomial, 2)
+		    ->add(Systolic::Cell::Types::Polynomial, -6)
+		    ->add(Systolic::Cell::Types::Polynomial, 2)
+		    ->add(Systolic::Cell::Types::Polynomial, -1));
+	sc3.compute();
+	std::cout << sc3.getLog() << std::endl;
 	return EXIT_SUCCESS;
 }

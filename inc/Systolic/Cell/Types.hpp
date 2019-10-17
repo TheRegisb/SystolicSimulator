@@ -30,6 +30,7 @@
 #include "Systolic/Cell/DivisionCell.hpp"
 #include "Systolic/Cell/SquareCell.hpp"
 #include "Systolic/Cell/PowerCell.hpp"
+#include "Systolic/Cell/PolynomialCell.hpp"
 #include "Systolic/Cell/CustomCell.hpp"
 
 namespace Systolic {
@@ -44,6 +45,7 @@ namespace Systolic {
 			Division, /** Reference to DivisionCell. */
 			Square, /** Reference to SquareCell. */
 			Power, /** Reference to PowerCell. */
+			Polynomial, /** Reference to PolynomialCell. */
 			Custom /** Reference to CustomCell. */
 		};
 	}

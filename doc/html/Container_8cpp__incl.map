@@ -1,12 +1,13 @@
 <map id="src/Systolic/Container.cpp" name="src/Systolic/Container.cpp">
-<area shape="rect" id="node2" href="$Container_8hpp.html" title="Default cell container and runner. " alt="" coords="1630,80,1759,121"/>
-<area shape="rect" id="node3" href="$Types_8hpp.html" title="Enum refering to the type of cells. " alt="" coords="705,259,866,285"/>
-<area shape="rect" id="node15" href="$CellArrayBuilder_8hpp.html" title="Builder of vector&lt;unique_ptr&lt;ICell&gt;&gt;. " alt="" coords="1251,169,1397,211"/>
-<area shape="rect" id="node4" href="$ICell_8hpp.html" title="Defines the generic cell interface. " alt="" coords="575,423,727,449"/>
-<area shape="rect" id="node7" href="$AdditiveCell_8hpp.html" title="Cell dedicated to additions. " alt="" coords="688,341,883,367"/>
-<area shape="rect" id="node8" href="$MultiplicativeCell_8hpp.html" title="Cell dedicated to multiplication. " alt="" coords="5,333,181,375"/>
-<area shape="rect" id="node9" href="$DivisionCell_8hpp.html" title="Cell dedicated to division. " alt="" coords="205,341,400,367"/>
-<area shape="rect" id="node10" href="$SquareCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="424,341,613,367"/>
-<area shape="rect" id="node11" href="$PowerCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="907,341,1093,367"/>
-<area shape="rect" id="node13" href="$CustomCell_8hpp.html" title="Cell dedicated to custom operation. " alt="" coords="1117,341,1312,367"/>
+<area shape="rect" id="node2" href="$Container_8hpp.html" title="Default cell container and runner. " alt="" coords="549,80,678,121"/>
+<area shape="rect" id="node4" href="$ICell_8hpp.html" title="Defines the generic cell interface. " alt="" coords="691,423,843,449"/>
+<area shape="rect" id="node3" href="$Types_8hpp.html" title="Enum refering to the type of cells. " alt="" coords="750,259,911,285"/>
+<area shape="rect" id="node16" href="$CellArrayBuilder_8hpp.html" title="Builder of vector&lt;unique_ptr&lt;ICell&gt;&gt;. " alt="" coords="94,169,239,211"/>
+<area shape="rect" id="node7" href="$AdditiveCell_8hpp.html" title="Cell dedicated to additions. " alt="" coords="669,341,864,367"/>
+<area shape="rect" id="node8" href="$MultiplicativeCell_8hpp.html" title="Cell dedicated to multiplication. " alt="" coords="888,333,1064,375"/>
+<area shape="rect" id="node9" href="$DivisionCell_8hpp.html" title="Cell dedicated to division. " alt="" coords="1088,341,1283,367"/>
+<area shape="rect" id="node10" href="$SquareCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="405,341,595,367"/>
+<area shape="rect" id="node11" href="$PowerCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="1307,341,1493,367"/>
+<area shape="rect" id="node13" href="$PolynomialCell_8hpp.html" title="Cell dedicated to polynomial operation. " alt="" coords="1517,333,1681,375"/>
+<area shape="rect" id="node14" href="$CustomCell_8hpp.html" title="Cell dedicated to custom operation. " alt="" coords="187,341,381,367"/>
 </map>

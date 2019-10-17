@@ -26,15 +26,16 @@ if (WIN32)
   set(CMAKE_GENERATOR_PLATFORM "x64")
 endif()
 
-# Set warning flags
-if(CMAKE_COMPILER_IS_GNUCXX)
-  set(CMAKE_CSS_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic")
-endif()
-
 # Project is systolic
-project(systolic)
+project(systolic C CXX)
 set (systolic_VERSION_MAJOR 0)
 set (systolic_VERSION_MINOR 1)
+
+# Set warning flags
+if(CMAKE_COMPILER_IS_GNUCXX)
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -pedantic -pthread -g3")
+endif()
+
 
 # Required includes
 include_directories(${CMAKE_SOURCE_DIR}/inc)
@@ -46,11 +47,13 @@ set(SOURCES src/main.cpp
   src/Systolic/Cell/AdditiveCell.cpp
   src/Systolic/Cell/DivisionCell.cpp
   src/Systolic/Cell/PowerCell.cpp
+  src/Systolic/Cell/PolynomialCell.cpp
   src/Systolic/Cell/CustomCell.cpp
   src/Systolic/CellArrayBuilder.cpp
   src/Systolic/Container.cpp)
 
 add_executable (systolic ${SOURCES})
+target_link_libraries(systolic ${CMAKE_THREAD_LIB_INIT})
 
 # Required C++17 support
 set_property(TARGET systolic PROPERTY CXX_STANDARD 17)

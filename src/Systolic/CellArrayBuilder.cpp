@@ -72,7 +72,9 @@ Systolic::CellArrayBuilder::getInstanceFromEnum(const Systolic::Cell::Types type
 		return std::make_unique<SquareCell>();
 	case Types::Power:
 		return std::make_unique<PowerCell>(term);
+	case Types::Polynomial:
+		return std::make_unique<PolynomialCell>(term);
 	default:
-		return nullptr;
+		throw std::runtime_error("Use of an unimplemented cell.");
 	}
 }
