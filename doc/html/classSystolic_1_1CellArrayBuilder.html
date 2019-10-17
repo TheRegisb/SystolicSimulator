@@ -94,6 +94,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a091b788861ab6d1d376c2c172727cd7e"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classSystolic_1_1CellArrayBuilder.html">CellArrayBuilder</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1CellArrayBuilder.html#a091b788861ab6d1d376c2c172727cd7e">add</a> (const <a class="el" href="Types_8hpp.html#ad0801bb01e8d9e3deb1b952f0d1ebc99">Systolic::Cell::Types</a> cellType, const std::function&lt; int(const int)&gt; customFunc)</td></tr>
 <tr class="memdesc:a091b788861ab6d1d376c2c172727cd7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a custom cell to the array.  <a href="#a091b788861ab6d1d376c2c172727cd7e">More...</a><br /></td></tr>
 <tr class="separator:a091b788861ab6d1d376c2c172727cd7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a281a8d658ee5ea4bebfcfd9bda3b906a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classSystolic_1_1CellArrayBuilder.html">CellArrayBuilder</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1CellArrayBuilder.html#a281a8d658ee5ea4bebfcfd9bda3b906a">fromPolynomialCoefs</a> (const std::initializer_list&lt; int &gt; coefs)</td></tr>
+<tr class="memdesc:a281a8d658ee5ea4bebfcfd9bda3b906a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add an deduced number of PolynomialCells.  <a href="#a281a8d658ee5ea4bebfcfd9bda3b906a">More...</a><br /></td></tr>
+<tr class="separator:a281a8d658ee5ea4bebfcfd9bda3b906a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec1030f5b2af13d10b3fbf037ee2abca"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classSystolic_1_1CellArrayBuilder.html">CellArrayBuilder</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1CellArrayBuilder.html#aec1030f5b2af13d10b3fbf037ee2abca">fromPolynomialEquation</a> (const char *equation)</td></tr>
+<tr class="memdesc:aec1030f5b2af13d10b3fbf037ee2abca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Unimplemented.  <a href="#aec1030f5b2af13d10b3fbf037ee2abca">More...</a><br /></td></tr>
+<tr class="separator:aec1030f5b2af13d10b3fbf037ee2abca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac3f6120da83e47bd929f0d9a26834aa9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::unique_ptr&lt; <a class="el" href="classSystolic_1_1Cell_1_1ICell.html">Systolic::Cell::ICell</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSystolic_1_1CellArrayBuilder.html#ac3f6120da83e47bd929f0d9a26834aa9">build</a> ()</td></tr>
 <tr class="memdesc:ac3f6120da83e47bd929f0d9a26834aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate the systolic array from previous addition.  <a href="#ac3f6120da83e47bd929f0d9a26834aa9">More...</a><br /></td></tr>
 <tr class="separator:ac3f6120da83e47bd929f0d9a26834aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,6 +220,60 @@ static std::shared_ptr&lt; <a class="el" href="classSystolic_1_1CellArrayBuilder
 
 <p>Generate the systolic array from previous addition. </p>
 <dl class="section return"><dt>Returns</dt><dd>A vector of unique_ptr of the previously added cells. </dd></dl>
+
+</div>
+</div>
+<a id="a281a8d658ee5ea4bebfcfd9bda3b906a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a281a8d658ee5ea4bebfcfd9bda3b906a">&#9670;&nbsp;</a></span>fromPolynomialCoefs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classSystolic_1_1CellArrayBuilder.html">Systolic::CellArrayBuilder</a> &gt; Systolic::CellArrayBuilder::fromPolynomialCoefs </td>
+          <td>(</td>
+          <td class="paramtype">const std::initializer_list&lt; int &gt;&#160;</td>
+          <td class="paramname"><em>coefs</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add an deduced number of PolynomialCells. </p>
+<p>Add as many PolynomialCell as needed for the given list, with their coefficients in order of the list. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">coefs</td><td>The list of coefficients for each future polynomial cell. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The instance of the builder. </dd></dl>
+
+</div>
+</div>
+<a id="aec1030f5b2af13d10b3fbf037ee2abca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1030f5b2af13d10b3fbf037ee2abca">&#9670;&nbsp;</a></span>fromPolynomialEquation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt; <a class="el" href="classSystolic_1_1CellArrayBuilder.html">Systolic::CellArrayBuilder</a> &gt; Systolic::CellArrayBuilder::fromPolynomialEquation </td>
+          <td>(</td>
+          <td class="paramtype">const char *&#160;</td>
+          <td class="paramname"><em>equation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Unimplemented. </p>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">runtime_error</td><td>Systematically. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The instance of the builder. </dd></dl>
 
 </div>
 </div>

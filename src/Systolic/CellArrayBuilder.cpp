@@ -56,6 +56,23 @@ std::vector<std::unique_ptr<Systolic::Cell::ICell>> Systolic::CellArrayBuilder::
 	return std::move(cellArray);
 }
 
+std::shared_ptr<Systolic::CellArrayBuilder>
+Systolic::CellArrayBuilder::fromPolynomialCoefs(const std::initializer_list<int> coefs)
+{
+	for (int coef : coefs) {
+		cellArray.push_back(getInstanceFromEnum(Systolic::Cell::Types::Polynomial, coef));
+	}
+	return shared_from_this();
+}
+
+std::shared_ptr<Systolic::CellArrayBuilder>
+Systolic::CellArrayBuilder::fromPolynomialEquation(const char *equation)
+{
+	(void) equation;
+	throw std::runtime_error("Deduction from equations is not supported for now.");
+	return shared_from_this();
+}
+
 std::unique_ptr<Systolic::Cell::ICell>
 Systolic::CellArrayBuilder::getInstanceFromEnum(const Systolic::Cell::Types type, const int term)
 {

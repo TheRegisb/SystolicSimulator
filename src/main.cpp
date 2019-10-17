@@ -22,13 +22,10 @@
 int main(void)
 {
 	/* Example for 2x³ - 6x² + 2x - 1 */
+	/* With X = 3, 4, 5, 6, 7 */
 	Systolic::Container sc3({3, 4, 5, 6, 7});
 
-	sc3.setCells(Systolic::CellArrayBuilder::getNew()
-		    ->add(Systolic::Cell::Types::Polynomial, 2)
-		    ->add(Systolic::Cell::Types::Polynomial, -6)
-		    ->add(Systolic::Cell::Types::Polynomial, 2)
-		    ->add(Systolic::Cell::Types::Polynomial, -1));
+	sc3.setCells(Systolic::CellArrayBuilder::getNew()->fromPolynomialCoefs({2, -6, 2, -1}));
 	sc3.compute();
 	std::cout << sc3.getLog() << std::endl;
 	return EXIT_SUCCESS;

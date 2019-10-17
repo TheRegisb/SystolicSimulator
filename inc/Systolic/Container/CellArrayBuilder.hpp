@@ -63,6 +63,20 @@ namespace Systolic {
 		std::shared_ptr<CellArrayBuilder> add(const Systolic::Cell::Types cellType,
 				      const std::function<int(const int)> customFunc);
 		/**
+		 * Add an deduced number of PolynomialCells.
+		 * Add as many PolynomialCell as needed for the given list, with their coefficients in
+		 * order of the list.
+		 * @param coefs The list of coefficients for each future polynomial cell.
+		 * @return The instance of the builder.
+		 */
+		std::shared_ptr<CellArrayBuilder> fromPolynomialCoefs(const std::initializer_list<int> coefs);
+		/**
+		 * Unimplemented.
+		 * @throw runtime_error Systematically.
+		 * @return The instance of the builder.
+		 */
+		std::shared_ptr<CellArrayBuilder> fromPolynomialEquation(const char *equation);
+		/**
 		 * Generate the systolic array from previous addition.
 		 * @return A vector of unique_ptr of the previously added cells.
 		 */
