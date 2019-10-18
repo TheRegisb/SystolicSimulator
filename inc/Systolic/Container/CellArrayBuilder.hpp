@@ -86,7 +86,7 @@ namespace Systolic {
 		 * Add as many PolynomialCells as required to solves the given equation
 		 * using the Horner's method.
 		 * Ill-formated equation will provide an undefined sequence of cells.
-		 * @param An equation of the form Cn*X^N(+Cn-1*X^N-1+…).
+		 * @param equation An equation of the form Cn*X^N(+Cn-1*X^N-1+…).
 		 * @return The instance of the builder.
 		 */
 		std::shared_ptr<CellArrayBuilder> fromPolynomialEquation(std::string equation);

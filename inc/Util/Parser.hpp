@@ -32,6 +32,11 @@
 
 namespace Util {
 
+	/**
+	 * Systolic-themed command line parser.
+	 * Used to simplify the creation of a CLI for the
+	 * Systolic library.
+	 */
 	class Parser {
 	public:
 		/**
@@ -42,7 +47,7 @@ namespace Util {
 		 * @param map Map to fill.
 		 * @param args Command lines arguments.
 		 * @throw invalid_argument when the value of coefs 
-		 * or with-x is not properly formatted.
+		 * with-x or equation is not properly formatted.
 		 * @return (1) true if all fields are set as expected or
 		 * (2) false if --with-x is not set and both --coefs and
 		 * --equation are either set or unset.
