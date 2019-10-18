@@ -28,6 +28,7 @@
 
 #include <stdexcept>
 #include <vector>
+#include <queue>
 #include <memory>
 #include <functional>
 
@@ -63,19 +64,28 @@ namespace Systolic {
 		std::shared_ptr<CellArrayBuilder> add(const Systolic::Cell::Types cellType,
 				      const std::function<int(const int)> customFunc);
 		/**
-		 * Add an deduced number of PolynomialCells.
+		 * Add a deduced number of PolynomialCells.
 		 * Add as many PolynomialCell as needed for the given list, with their coefficients in
 		 * order of the list.
-		 * @param coefs The list of coefficients for each future polynomial cell.
+		 * @param coefs The list of coefficients for each future polynomial cell, in order.
 		 * @return The instance of the builder.
 		 */
 		std::shared_ptr<CellArrayBuilder> fromPolynomialCoefs(const std::initializer_list<int> coefs);
 		/**
+		 * Add a preset number of PolynomialCells.
+		 * Add as many PolynomialCell as entries in the given queue, with their coefficients in
+		 * order of the queue.
+		 * @param coefs The queue of coefficients for each future polynomial cell, in order.
+		 * @return The instance of the builder.
+		 */
+		std::shared_ptr<CellArrayBuilder> fromPolynomialCoefs(const std::queue<int> coefs);
+		/**
 		 * Unimplemented.
+		 * @param An equation of the form Cn*X^N(+Cn-1*X^N-1+…).
 		 * @throw runtime_error Systematically.
 		 * @return The instance of the builder.
 		 */
-		std::shared_ptr<CellArrayBuilder> fromPolynomialEquation(const char *equation);
+		std::shared_ptr<CellArrayBuilder> fromPolynomialEquation(std::string equation);
 		/**
 		 * Generate the systolic array from previous addition.
 		 * @return A vector of unique_ptr of the previously added cells.

@@ -66,7 +66,19 @@ Systolic::CellArrayBuilder::fromPolynomialCoefs(const std::initializer_list<int>
 }
 
 std::shared_ptr<Systolic::CellArrayBuilder>
-Systolic::CellArrayBuilder::fromPolynomialEquation(const char *equation)
+Systolic::CellArrayBuilder::fromPolynomialCoefs(const std::queue<int> coefs)
+{
+	std::queue<int> ccoefs = coefs;
+
+	while (!ccoefs.empty()) {
+		cellArray.push_back(getInstanceFromEnum(Systolic::Cell::Types::Polynomial, ccoefs.front()));
+		ccoefs.pop();
+	}
+	return shared_from_this();
+}
+
+std::shared_ptr<Systolic::CellArrayBuilder>
+Systolic::CellArrayBuilder::fromPolynomialEquation(std::string equation)
 {
 	(void) equation;
 	throw std::runtime_error("Deduction from equations is not supported for now.");
