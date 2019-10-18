@@ -30,6 +30,8 @@
 #include <vector>
 #include <queue>
 #include <memory>
+#include <regex>
+#include <utility>
 #include <functional>
 
 namespace Systolic {
@@ -80,9 +82,11 @@ namespace Systolic {
 		 */
 		std::shared_ptr<CellArrayBuilder> fromPolynomialCoefs(const std::queue<int> coefs);
 		/**
-		 * Unimplemented.
+		 * Add a preset number PolynomialCells.
+		 * Add as many PolynomialCells as required to solves the given equation
+		 * using the Horner's method.
+		 * Ill-formated equation will provide an undefined sequence of cells.
 		 * @param An equation of the form Cn*X^N(+Cn-1*X^N-1+…).
-		 * @throw runtime_error Systematically.
 		 * @return The instance of the builder.
 		 */
 		std::shared_ptr<CellArrayBuilder> fromPolynomialEquation(std::string equation);
@@ -98,6 +102,11 @@ namespace Systolic {
 		static void operator delete[](void *) = delete;
 		std::unique_ptr<Systolic::Cell::ICell> getInstanceFromEnum(const Systolic::Cell::Types type,
 									   const int term);
+		std::vector<std::string> splitOnRegex(const std::string stringToSplit,
+						      const std::string regexPattern) const;
+		inline std::string reformat(const std::string &equation) const;
+		inline std::vector<std::pair<int, int>> getCoefsPair(const std::string equation) const;
+		inline void fillMissingCoefs(std::vector<std::pair<int, int>> &coefs) const;
 		std::vector<std::unique_ptr<Systolic::Cell::ICell>> cellArray;
 	};
 }

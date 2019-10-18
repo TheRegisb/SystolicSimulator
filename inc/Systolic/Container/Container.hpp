@@ -33,6 +33,7 @@
 #include <sstream>
 #include <memory>
 #include <algorithm>
+#include <future>
 #include <initializer_list>
 #include <vector>
 #include <queue>
@@ -54,6 +55,11 @@ namespace Systolic {
 		 * bracket-enclosed list (e.g. {0, 1, 2, 3}).
 		 */
 		Container(const std::initializer_list<const int> entries);
+		/**
+		 * Preset constructor.
+		 * @param entries A preset queue of the numbers to process.
+		 */
+		Container(const std::queue<int> entries);
 		/**
 		 * C-Style constructor.
 		 * Tells how many inputs there is and what is their respective

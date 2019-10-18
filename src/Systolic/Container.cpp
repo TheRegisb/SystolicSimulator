@@ -34,6 +34,11 @@ Systolic::Container::Container(const int entries, ...)
 	}
 }
 
+Systolic::Container::Container(const std::queue<int> entries)
+{
+	inputs = entries;
+}
+
 Systolic::Container::Container(const std::initializer_list<const int> entries)
 {
 	for (int entry : entries) {
@@ -76,7 +81,12 @@ void Systolic::Container::step()
 
 	// Compute the current value of each cells.
 	for (auto &&ptr : cells) {
-		std::tuple<std::optional<int>, std::optional<int>> res = ptr->compute();
+		/* std::future<std::tuple<std::optional<int>, std::optional<int>>> futurePartial = std::async(ptr->compute) */
+		ptr->compute(); // TODO start an async task.
+		/*std::future<std::tuple<std::optional<int>, std::optional<int>>> aled = std::async(std::launch::async, [&ptr]{ return ptr->compute(); }); 
+		aled.wait();
+		auto res  = aled.get();
+		std::cout << "le future me dis: " << std::get<0>(res).value_or(-1) << std::endl;*/
 	}
 
 	// Add the last cell partial (final result) to the output queue if available.

@@ -10,7 +10,8 @@ This project is done in "modern" C++ with CMake and hence required:
 ## Usage
 (Instructions to come.)
 
-Basically, edit the `src/main.cpp` file to declare a cell container, fill it with the desired cells and inputs before computing the results.
+The Systolic/* files can be used as a standalone library while main.cpp provide an example command line interface.
+Look it up for an example for the time being.
 
 ## Compilation
 ### On UNIX

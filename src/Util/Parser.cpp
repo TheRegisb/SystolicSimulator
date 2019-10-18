@@ -27,13 +27,13 @@
 bool Util::Parser::setArgs(std::unordered_map<std::string, std::string> &map, char **args)
 {
 	std::regex intListRegex("^-?[0-9]+((,-?[0-9]+)?)+$"); // Matches list of (possibly negative) integers separated by comme.
+	std::regex equationRegex("^[\\dxX\\-]((\\d+)?[\\*+\\-]?[xX]?(\\^\\d)?)+$");
 	
 	for (unsigned int i = 1; args[i] != nullptr; i++) {
 		std::string arg = args[i];
 		std::string token = arg.substr(0, arg.find('='));
 		std::string value = arg.substr(arg.find('=') + 1, arg.size());
 
-		std::cout << "toke,: " << token << " : " << "value: " << value << std::endl;
 		if (map.find(token) == map.end()) {
 			std::cerr << "Error: Unknown option: " << token << std::endl;
 			return false;
@@ -41,7 +41,9 @@ bool Util::Parser::setArgs(std::unordered_map<std::string, std::string> &map, ch
 			if ((token == "--coefs" || token == "--with-x")
 			    && !std::regex_match(value, intListRegex)) {
 				throw std::invalid_argument(std::string("Value of ") + token + " is not a valid list of interger.");
-			} // TODO equation regex
+			} else if (token == "--equation" && !std::regex_match(value, equationRegex)) {
+				throw std::invalid_argument("Value of --equation does not match the /^[\\dxX\\-]((\\d+)?[\\*+\\-]?[xX]?(\\^\\d)?)+$/ regex.");
+			}
 			map[token] = value;
 		}
 	}
