@@ -5,7 +5,8 @@ Simulation of the flow of systolic algorithms; where computational unit called "
 ## Requirement
 This project is done in "modern" C++ with CMake and hence required:
 * A C++ compiler supporting **C++17**
-* CMake version 3.1 or greater
+* CMake version 3.4 or greater
+* Make for UNIX
 
 ## Usage
 (Instructions to come.)
@@ -20,8 +21,24 @@ mkdir build && cd build && cmake .. && make
 ```
 will create an executable named `systolic` at the root of the `build` folder.
 
-### On Windows
-(Instructions to come.)
+### On Windows (using Visual Studio)
+Using the Developer Command Prompt for Visual Studio:
+First, create the folder:
+```
+mkdir build && cd build
+```
+
+Then, generate the project file:
+For the latest Msvc in date:
+`cmake -G "Visual Studio 16 2019" -A x[64|86] ..`
+Or for previous releases:
+`cmake -G "Visual Studio ?? 20?? [Win64"]`
+
+Lastly, compile the program:
+```
+cmake --build . --target ALL_BUILD --config Release
+```
+A program named `systolic.exe` will now be present in the `build\Release` folder.
 
 ## License
 Every files of this repository is licensed under Apache License 2.0.

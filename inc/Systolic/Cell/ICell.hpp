@@ -24,6 +24,7 @@
 
 #pragma once
 
+#include <string>
 #include <tuple>
 #include <optional>
 

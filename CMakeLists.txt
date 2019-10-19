@@ -19,11 +19,19 @@
 
 
 # Set minimum version of CMake
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.4)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Set x64 target for Windows builds.
 if (WIN32)
   set(CMAKE_GENERATOR_PLATFORM "x64")
+endif()
+if (MSVC_VERSION GREATER_EQUAL "1900")
+    include(CheckCXXCompilerFlag)
+    CHECK_CXX_COMPILER_FLAG("/std:c++c++17" _cpp_latest_flag_supported)
+    if (_cpp_latest_flag_supported)
+        add_compile_options("/std:c++17 /Wall")
+    endif()
 endif()
 
 # Project is systolic
@@ -58,3 +66,5 @@ target_link_libraries(systolic ${CMAKE_THREAD_LIB_INIT})
 
 # Required C++17 support
 set_property(TARGET systolic PROPERTY CXX_STANDARD 17)
+set_property(TARGET systolic PROPERTY CXX_STANDARD_REQUIRED ON)
+target_compile_features(systolic PUBLIC cxx_std_17)
