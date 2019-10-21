@@ -79,23 +79,6 @@ void Systolic::Container::step()
 		return;
 	}
 
-	// Compute the current value of each cells.
-	for (auto &&ptr : cells) {
-		/* std::future<std::tuple<std::optional<int>, std::optional<int>>> futurePartial = std::async(ptr->compute) */
-		ptr->compute(); // TODO start an async task.
-		/*std::future<std::tuple<std::optional<int>, std::optional<int>>> aled = std::async(std::launch::async, [&ptr]{ return ptr->compute(); }); 
-		aled.wait();
-		auto res  = aled.get();
-		std::cout << "le future me dis: " << std::get<0>(res).value_or(-1) << std::endl;*/
-	}
-
-	// Add the last cell partial (final result) to the output queue if available.
-	std::optional<int> lastCellOutput = std::get<0>(cells.back()->getPartial());
-
-	if (lastCellOutput.has_value()) {
-		outputs.push(lastCellOutput.value());
-	}
-	
 	// Feeds the first cell with a value from the inputs queue.
 	if (!inputs.empty()) {
 		cells.at(0)->feed(std::make_tuple(std::nullopt, inputs.front()));
@@ -104,9 +87,36 @@ void Systolic::Container::step()
 		cells.at(0)->feed(std::make_tuple(std::nullopt, std::nullopt)); // Feeds empty value.
 	}
 
-	// Feed all other cells with the partials of the previous cell.
+	// Feed all other cells with the partials (results) of the previous cell.
 	for(std::size_t i = 1; i < cells.size(); i++) {
 		cells.at(i)->feed(cells.at(i - 1)->getPartial());
+	}
+
+	// Compute the current value of each cells.
+	std::queue<std::future<std::tuple<std::optional<int>, std::optional<int>>>> futures;
+
+	for (std::size_t i = 0; i != cells.size(); i++) {
+		/* 
+		 * Each computation is started in its own thread.
+		 * std::async returns a std::future to access the thread's return
+		 * value (or exception).
+		 * This way, larger computation can be started without preventing the
+		 * start of other computations.
+		 */
+		futures.push(std::async(std::launch::async, [this, j = i]{ return cells.at(j)->compute(); }));
+	}
+
+	// Add the last cell partial (final result) to the output queue if available.
+	std::optional<int> lastCellOutput = std::get<0>(futures.back().get());
+
+	if (lastCellOutput.has_value()) {
+		outputs.push(lastCellOutput.value());
+	}
+
+	// Wait for each computation to be completed.
+	while (futures.size() != 1) { // Last handle have been used by lastCellOutput.
+		futures.front().wait();
+		futures.pop();
 	}
 }
 
