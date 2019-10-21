@@ -120,7 +120,8 @@ namespace Systolic {
 		 */
 		void dumpOutputs() const;
 		/**
-		 * Get a copy of the current output queue.
+		 * Get a copy of the current output queue, as a
+		 * list of no-space comma-separated numbers.
 		 */
 		std::queue<int> getOutputs() const;
 

@@ -144,9 +144,10 @@ void Systolic::Container::dumpOutputs() const
 	std::queue<int> copy = outputs;
 
 	while (!copy.empty()) {
-		std::cout << copy.front() << std::endl;
+		std::cout << copy.front() << (copy.size() > 1 ? "," : "");
 		copy.pop();
 	}
+	std::cout << std::endl;
 }
 
 std::queue<int> Systolic::Container::getOutputs() const
@@ -164,7 +165,7 @@ std::string Systolic::Container::getLog() const
 	std::stringstream ss;
 
 	for (std::string entry : logs) {
-		ss << entry << std::endl;
+		ss << entry;
 	}
 	return ss.str();
 }

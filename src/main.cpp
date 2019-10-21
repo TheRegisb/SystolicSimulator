@@ -67,7 +67,7 @@ int main(int ac, char **av)
 
 	/* Displaying either only the result or the full graphic log depending on the --verbose option. */
 	if (args["--verbose"] == "true") {
-		std::cout << sc3.getLog() << std::endl;
+		std::cout << sc3.getLog();
 	} else {
 		sc3.dumpOutputs();
 	}
