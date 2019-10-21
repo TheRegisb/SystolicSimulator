@@ -24,7 +24,6 @@
 
 #pragma once
 
-#include "Systolic/Cell/ICell.hpp"
 #include "Systolic/Cell/Types.hpp"
 #include "Systolic/Container/Container.hpp"
 #include "Systolic/Container/CellArrayBuilder.hpp"
@@ -35,7 +34,15 @@
  * unit called "cell" are working on parallel, computing the result
  * given by the last cell before feeding the result into the next one.
  *
- * More to come later.
+ * \section Usage
+ * The geneal usage of the Systolic Simulator is to decalare a new container of type `Systolic::Container` and to generate a predefined amount of cells, whose type and value are configurable by the user.
+ *
+ * To simplify the creation of cells, the use of the `Systolic::CellArrayBuilder` can be used in conjonction with the `Systolic::Container::setCells` function to generate the instances of the cells from theit types and value.
+ * Special utilities are available for polynomial equations.
+ *
+ * The Container can then be used to solves the equation either step by step, using the `Systolic::Container::step` function or until completion using the `Systolic::Container::compute` function.
+ *
+ * Results and logs of the computations, partial or completed, can be queried using respectively `Systolic::Container::dumpOutputs`, `Systolic::Container::getCurrentStateLog` or `Systolic::Container::getLog`.
  *
  * <hr>
  * \section Credits

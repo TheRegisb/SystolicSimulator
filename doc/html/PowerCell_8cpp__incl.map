@@ -1,4 +1,4 @@
 <map id="src/Systolic/Cell/PowerCell.cpp" name="src/Systolic/Cell/PowerCell.cpp">
-<area shape="rect" id="node2" href="$PowerCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="53,80,238,107"/>
-<area shape="rect" id="node3" href="$ICell_8hpp.html" title="Defines the generic cell interface. " alt="" coords="5,155,157,181"/>
+<area shape="rect" id="node2" href="$PowerCell_8hpp.html" title="Cell dedicated to square (X^2) operation. " alt="" coords="81,80,267,107"/>
+<area shape="rect" id="node3" href="$ICell_8hpp.html" title="Defines the generic cell interface. " alt="" coords="34,155,186,181"/>
 </map>

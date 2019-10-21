@@ -64,19 +64,27 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>Presentation</h2>
-<p>Simulation of the flow of systolic algorithms; where computational unit called "cell" are working on parallel, computing the result given by the last cell before feeding the result into the next one.</p>
+<p>Simulation of the flow of systolic algorithms; where computational units called "cell" are working on parallel, computing the result given by the last cell before feeding the result into the next one.</p>
 <h2>Requirement</h2>
-<p>This project is done in "modern" C++ with CMake and hence required:</p><ul>
+<p>This project is done in “modern” C++ with CMake and hence required:</p><ul>
 <li>A C++ compiler supporting <b>C++17</b></li>
-<li>CMake version 3.1 or greater</li>
+<li>CMake version 3.4 or greater</li>
+<li>Make (if using UNIX)</li>
 </ul>
 <h2>Usage</h2>
-<p>(Instructions to come.)</p>
-<p>The Systolic/* files can be used as a standalone library while main.cpp provide an example command line interface. Look it up for an example for the time being.</p>
-<h2>Compilation</h2>
+<h3>Systolic library</h3>
+<p>The geneal usage of the Systolic Simulator is to decalare a new container of type <code><a class="el" href="classSystolic_1_1Container.html" title="Cell container and runner. ">Systolic::Container</a></code> and to generate a predefined amount of cells, whose type and value are configurable by the user.</p>
+<p>To simplify the creation of cells, the use of the <code>Systolic::Container::CellArrayBuilder</code> can be used in conjonction with the board, to generate the instances of the cells from theit types and value. Special cases are made for polynomial equations.</p>
+<p>The Container can then be used to solves the equation either step by step, using the <code>step()</code> function or until completion using the <code>compute()</code> function.</p>
+<p>Results and logs of the computations, partial or completed, can be queried using respectively <code>dumpOutput()</code>, <code>getCurrentLog()</code> or <code>getLog()</code>.</p>
+<p>Additional information about using the Systolic Simulator library can be found in the Doc folder.</p>
+<h3>Main's CLI</h3>
+<p>The command line usage of the library is intended to be used for solving polynomial equation using the Horner's Rule.</p>
+<p>For this end, the user must enter either all the coefficients of the operation in order using the <code>--coefs=</code> option or directly the equation using the <code>--equation=</code> option as well as the values of X using <code>--with-x=</code>.</p>
+<p>The CLI offers the following options: </p><div class="fragment"><div class="line">--with-x=(-)[0-9]+(,(-)[0-9]+, …)       : Defines the value of X, as an integer</div><div class="line">--coefs=(-)[0-9]+(,(-)[0-9]+, …)        : Defines the coefficients of the equation, including 0 values, by their N order</div><div class="line">--equation=Cn*X^N(+Cn-1*X^N-1+…)        : Single-variable polynomial equation</div><div class="line">--verbose=[true|FALSE]                  : Displays only the result on false (by default) or the complete log on true</div><div class="line">--help                                  : Displays a help message</div><div class="line">--about                                 : Display additional information about the program</div></div><!-- fragment --><h2>Compilation</h2>
 <p>### On UNIX </p><div class="fragment"><div class="line">mkdir build &amp;&amp; cd build &amp;&amp; cmake .. &amp;&amp; make</div></div><!-- fragment --><p> will create an executable named <code>systolic</code> at the root of the <code>build</code> folder.</p>
-<h3>On Windows</h3>
-<p>(Instructions to come.)</p>
+<h3>On Windows (using Visual Studio)</h3>
+<p>Using the Developer Command Prompt for Visual Studio: First, create the folder: </p><div class="fragment"><div class="line">mkdir build &amp;&amp; cd build</div></div><!-- fragment --><p>Then, generate the project file: For the latest Msvc in date: </p><div class="fragment"><div class="line">cmake -G &quot;Visual Studio 16 2019&quot; -A x[64|86] ..</div></div><!-- fragment --><p> Or for previous releases: </p><div class="fragment"><div class="line">`cmake -G &quot;Visual Studio ?? 20?? [Win64&quot;]</div></div><!-- fragment --><p>Lastly, compile the program: </p><div class="fragment"><div class="line">cmake --build . --target ALL_BUILD --config Release</div></div><!-- fragment --><p> A program named <code>systolic.exe</code> will now be present in the <code>build\Release</code> folder.</p>
 <h2>License</h2>
 <p>Every files of this repository is licensed under Apache License 2.0.</p>
 <p>Please see the LICENSE file for further information.</p>

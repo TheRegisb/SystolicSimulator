@@ -66,7 +66,12 @@ $(function() {
 <div class="textblock"><h1><a class="anchor" id="Presentation"></a>
 Presentation</h1>
 <p>Simulation of the flow of systolic algorithms; where computational unit called "cell" are working on parallel, computing the result given by the last cell before feeding the result into the next one.</p>
-<p>More to come later.</p>
+<h1><a class="anchor" id="Usage"></a>
+Usage</h1>
+<p>The geneal usage of the Systolic Simulator is to decalare a new container of type <code><a class="el" href="classSystolic_1_1Container.html" title="Cell container and runner. ">Systolic::Container</a></code> and to generate a predefined amount of cells, whose type and value are configurable by the user.</p>
+<p>To simplify the creation of cells, the use of the <code><a class="el" href="classSystolic_1_1CellArrayBuilder.html" title="Systolic array builder. ">Systolic::CellArrayBuilder</a></code> can be used in conjonction with the <code><a class="el" href="classSystolic_1_1Container.html#aece9512543b1f29ecab0a292a6975bf1" title="Initialize cells. ">Systolic::Container::setCells</a></code> function to generate the instances of the cells from theit types and value. Special utilities are available for polynomial equations.</p>
+<p>The Container can then be used to solves the equation either step by step, using the <code><a class="el" href="classSystolic_1_1Container.html#a6187ccc0b6bd4fc7ac0add615073e864" title="Single tick on the operation chain. ">Systolic::Container::step</a></code> function or until completion using the <code><a class="el" href="classSystolic_1_1Container.html#adc5724e29269fedeb279a3bb0f9182bb" title="Operate the chain until completion. ">Systolic::Container::compute</a></code> function.</p>
+<p>Results and logs of the computations, partial or completed, can be queried using respectively <code><a class="el" href="classSystolic_1_1Container.html#a90416082ff9c0ae3679d959b9f8a4b87" title="Display the current content of the output queue. ">Systolic::Container::dumpOutputs</a></code>, <code><a class="el" href="classSystolic_1_1Container.html#ab01aaadef823a12172503672dbc6148d" title="Get a textual representation of the current state. ">Systolic::Container::getCurrentStateLog</a></code> or <code><a class="el" href="classSystolic_1_1Container.html#ab9533178e88b1aa9bb62be1cf664a73a" title="Get a textual representation of past and current states. ">Systolic::Container::getLog</a></code>.</p>
 <hr/>
  <h1><a class="anchor" id="Credits"></a>
 Credits</h1>
